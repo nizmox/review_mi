@@ -22,7 +22,10 @@ class User < ActiveRecord::Base
   validates :password, :length => { :minimum => 8 }
   validates :password, format: { with: /\A\S+\z/, message: "cannot include whitespace characters"}
 
-  # validates :password, format: {with: /((?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,20})/, message: "must contain a number, upper case letter and lower case letter"}
+  #relationships
+  has_many :reviews
+  # has_many :content, through :reviews
+
   #use bcrypt to convert password to a password digest
   has_secure_password
 end
