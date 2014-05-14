@@ -14,6 +14,9 @@
 require 'spec_helper'
 
 describe Review do
+
+  it { should belong_to(:user) }
+
   describe '.new' do
     let(:review) { Review.new }
     subject { review }

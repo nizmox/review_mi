@@ -307,6 +307,27 @@
         1,
         null,
         1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null
       ],
       "/Users/Nizmox/Projects/WDI_4/other/review_mi/spec/models/review_spec.rb": [
@@ -326,6 +347,9 @@
         1,
         null,
         1,
+        null,
+        2,
+        null,
         1,
         4,
         4,
@@ -423,6 +447,9 @@
         1,
         null,
         1,
+        null,
+        2,
+        null,
         1,
         5,
         5,
@@ -541,6 +568,6 @@
         null
       ]
     },
-    "timestamp": 1400056359
+    "timestamp": 1400057044
   }
 }

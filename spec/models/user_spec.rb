@@ -13,6 +13,9 @@
 require 'spec_helper'
 
 describe User do
+
+  it { should have_many(:reviews) }
+
   describe '.new' do
     let(:user) { User.new }
     subject { user }
