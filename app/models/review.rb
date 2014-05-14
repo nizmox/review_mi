@@ -20,4 +20,5 @@ class Review < ActiveRecord::Base
   #relationships
   belongs_to :user
   belongs_to :content
+  # has_one :media, :through => :content
 end
