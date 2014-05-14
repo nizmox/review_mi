@@ -1,4 +1,10 @@
 ReviewMi::Application.routes.draw do
+
+  root 'home#index'
+
+  resources :reviews, :only => [:index, :show, :create]
+  # get 'reviews' => 'reviews#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

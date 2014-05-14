@@ -106,3 +106,6 @@ end
 
 #to allow better timestamp formatting
 # gem 'momentjs-rails'
+
+#backbone.js
+gem "rails-backbone"
