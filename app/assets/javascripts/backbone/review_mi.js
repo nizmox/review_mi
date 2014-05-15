@@ -17,7 +17,8 @@ window.ReviewMi = {
 };
 
 $(document).ready(function () {
-  ReviewMi.reviews = new ReviewMi.Collections.Reviews();
-  ReviewMi.reviews.fetch();
+  // start the backbone router
+  ReviewMi.router = new ReviewMi.Routers.appRouter();
+  Backbone.history.start({pushState: false});
 });
 

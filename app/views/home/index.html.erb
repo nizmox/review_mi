@@ -1,1 +1,56 @@
-<h1>Hi!</h1>
+<h1>ReviewMi</h1>
+
+<p>Login here:</p>
+<form>
+  <label for="">Username:</label>
+  <input type="text">
+  <label for="">Password:</label>
+  <input type="text">
+</form>
+
+<p>Links</p>
+<ul>
+  <li><a href="#">Home</a></li>
+  <li><a href="#review">Create Review</a></li>
+</ul>
+
+<div id="main">
+</div>
+
+<!-- underscore.js templates -->
+
+<!-- HOME VIEW -->
+
+<script id="homeView" type="text/x-underscore-template">     
+  <h2>Hello World!</h2>
+
+  <h3>Latest Reviews</h3>
+
+  // to display all reviews of this user's friends
+  <ul id="reviews">
+  </ul>
+</script>
+
+<script id="reviewView" type="text/x-underscore-template">
+  <p>{{ rating }}</p>
+  <p>{{ description }}</p>
+</script>
+
+<!-- NEW REVIEW VIEW -->
+
+<script id="newReviewView" type="text/x-underscore-template">
+  <h2>Search for a movie to review</h2>
+  <form id="search-frm">
+    <label>Movie Title Search:</label>
+    <input id="search-text" type="text">
+    <button id="search-btn">Search!</button>
+  </form>
+
+  // to display the results (a list of movies) or result (a single title)
+  <div id="result">
+  </div>
+</script>
+
+<script id="movieResultView" type="text/x-underscore-template">
+  <p>{{ title }} - {{ year }} - type: {{ type }}</p>
+</script>
