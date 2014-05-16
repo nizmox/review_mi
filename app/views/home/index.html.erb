@@ -36,9 +36,9 @@
   <p>{{ description }}</p>
 </script>
 
-<!-- NEW REVIEW VIEW -->
+<!-- MOVIE SEARCH VIEW -->
 
-<script id="newReviewView" type="text/x-underscore-template">
+<script id="movieSearchView" type="text/x-underscore-template">
   <h2>Search for a movie to review</h2>
   <form id="search-frm">
     <label>Movie Title Search:</label>
@@ -55,6 +55,8 @@
   <p>{{ title }} - {{ year }} - type: {{ type }}</p>
 </script>
 
+<!-- MOVIE TITLE VIEW -->
+
 <script id="movieTitleView" type="text/x-underscore-template">
   <img class="poster" src="{{ poster }}">
   <div class="info">
@@ -68,3 +70,18 @@
 
   <button>Create Review!</button>
 </script>
+
+<!-- NEW REVIEW VIEW -->
+
+<script id="newReview" type="text/x-underscore-template">
+  <h2>{{ title }}</h2>
+  <p>Write your review here...</p>
+  <div>
+    <form action="">
+      <input type="text">
+      <textarea name="" id="" cols="30" rows="10"></textarea>
+    </form>
+  </div>
+</script>
+
+

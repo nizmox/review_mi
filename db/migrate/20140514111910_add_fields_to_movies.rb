@@ -6,10 +6,10 @@ class AddFieldsToMovies < ActiveRecord::Migration
     add_column :movies, :released, :string
     add_column :movies, :runtime, :string
     add_column :movies, :genre, :string
-    add_column :movies, :director, :string
-    add_column :movies, :writer, :string
-    add_column :movies, :actors, :string
-    add_column :movies, :plot, :string
+    add_column :movies, :director, :text
+    add_column :movies, :writer, :text
+    add_column :movies, :actors, :text
+    add_column :movies, :plot, :text
     add_column :movies, :language, :string
     add_column :movies, :country, :string
     add_column :movies, :awards, :string
