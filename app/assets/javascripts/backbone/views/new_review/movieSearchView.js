@@ -4,7 +4,7 @@ ReviewMi.Views.movieSearchView = Backbone.View.extend({
 
   initialize: function () {
     //unbind any existing event handlers
-    $(this.el).undelegate('button', 'click #search-btn');
+    $(this.el).undelegate('#search-btn', 'click');
 
     this.template = _.template($('#newReviewView').html() );
   },
