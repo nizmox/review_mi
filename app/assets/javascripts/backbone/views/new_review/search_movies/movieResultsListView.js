@@ -1,16 +1,15 @@
 ReviewMi.Views.movieResultsListView = Backbone.View.extend({
-  // el: '#results',
+  
   tagName: 'ul',
   className: 'movies-list',
-  initialize: function () {
+
+  initialize: function (options) {
     // store the location to output the ul to
     this.$result = $('#result');
 
-    console.log(this.collection);
   },
+
   render: function () {
-    console.log("have the best time, seriously!");
-    
     //append to #results
     this.$result.html(this.el);
 

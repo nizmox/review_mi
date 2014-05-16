@@ -12,6 +12,6 @@ ReviewMi.Views.movieResultView = Backbone.View.extend({
     "click": "titleDetails"
   },
   titleDetails: function () {
-    ReviewMi.router.navigate('review/movie/' + (this.model.attributes.imdbID), true);
+    ReviewMi.router.navigate('search/movies/title/' + (this.model.attributes.imdbID), true);
   }
 });

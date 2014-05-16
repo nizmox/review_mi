@@ -11,7 +11,7 @@
 <p>Links</p>
 <ul>
   <li><a href="#">Home</a></li>
-  <li><a href="#review">Create Review</a></li>
+  <li><a href="#search/movies">Search Movies</a></li>
 </ul>
 
 <div id="main">
@@ -46,11 +46,25 @@
     <button id="search-btn">Search!</button>
   </form>
 
-  // to display the results (a list of movies) or result (a single title)
+  <!-- to display the results (a list of movies) or result (a single title) -->
   <div id="result">
   </div>
 </script>
 
 <script id="movieResultView" type="text/x-underscore-template">
   <p>{{ title }} - {{ year }} - type: {{ type }}</p>
+</script>
+
+<script id="movieTitleView" type="text/x-underscore-template">
+  <img class="poster" src="{{ poster }}">
+  <div class="info">
+    <h2>{{ title }}</h2>
+    <p>Year: {{ year }}</p>
+    <p>Genre: {{ genre }}</p>
+    <p>Director: {{ director }}</p>
+    <p>Writer: {{ writer }}</p>
+    <p>Plot: {{ plot }}</p>
+  </div>
+
+  <button>Create Review!</button>
 </script>

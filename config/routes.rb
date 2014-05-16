@@ -3,6 +3,7 @@ ReviewMi::Application.routes.draw do
   root 'home#index'
 
   resources :reviews, :only => [:index, :show, :create]
+  resources :movies, :only => [:create]
   
   # get 'reviews' => 'reviews#index'
 

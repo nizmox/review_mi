@@ -27,7 +27,14 @@
 #
 
 class Movie < ActiveRecord::Base
-  attr_accessible :title
+  attr_accessible :title,
+  # omdb fields
+  :year, :rated, :released, :runtime, :genre, :director, :writer, :actors, :plot, :language, 
+  :country, :awards, :poster, :metascore, :imdb_id, :imdb_type, :imdb_rating, :imdb_votes
 
   has_one :content, :as => :media
 end
+
+
+
+
