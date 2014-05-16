@@ -22,8 +22,8 @@ ReviewMi.Routers.appRouter = Backbone.Router.extend({
 
   //page to search for a movie to then review
   movieSearch: function () {
-    ReviewMi.movieSearchView = new ReviewMi.Views.movieSearchView();
-    ReviewMi.movieSearchView.render();
+    var view = new ReviewMi.Views.movieSearchView();
+    view.render();
   },
 
   //movie search results page
@@ -36,9 +36,8 @@ ReviewMi.Routers.appRouter = Backbone.Router.extend({
 
     //perform search on OMDB for the specified search term
     movies.searchOMDB(term, function () {
-      console.log("callback occuring...");
-      ReviewMi.movieResultsListView = new ReviewMi.Views.movieResultsListView({collection: movies});
-      ReviewMi.movieResultsListView.render();
+      var view = new ReviewMi.Views.movieResultsListView({collection: movies});
+      view.render();
     });
     
   },
@@ -46,12 +45,27 @@ ReviewMi.Routers.appRouter = Backbone.Router.extend({
   // view a single movie search result with more detail
   movieTitle: function (imdbID) {
 
-    var movie = new ReviewMi.Models.Movie();
-    movie.searchOMDB(imdbID, function () {
-      console.log("callback occuring...");
-      var view = new ReviewMi.Views.movieTitleView({model: movie});
-      view.render();
-    });
+    var movieArr = ReviewMi.movies.where({ imdb_id: imdbID });
+    
+    //if movie does not already exist
+    if ( _.isEmpty( movieArr ) ) {
+      console.log('this is a new movie, searching...');
+      //create a new movie object
+      movie = new ReviewMi.Models.Movie();
+
+      //search for this movie and render view on completion
+      movie.searchOMDB(imdbID, function () {
+        //render the single movie view
+        var view = new ReviewMi.Views.movieTitleView({model: movie});
+        view.render();
+      });
+    //movie already exists in movies collection, just render the view
+    } else {
+      console.log('this movie already exists in movies collection, no search needed');
+      //render the single movie view
+      var view = new ReviewMi.Views.movieTitleView({model: movieArr[0]});
+      view.render();  
+    }
 
   },
   

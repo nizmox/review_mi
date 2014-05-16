@@ -1,6 +1,10 @@
 ReviewMi.Views.movieTitleView = Backbone.View.extend({
   el: '#main',
   initialize: function () {
+    
+    //unbind any existing event handlers
+    $(this.el).undelegate('button', 'click');
+
     //fetch the template html
     this.template = _.template($('#movieTitleView').html() );
   },
@@ -12,8 +16,16 @@ ReviewMi.Views.movieTitleView = Backbone.View.extend({
     'click button': 'createReview'
   },
   createReview: function () {
-    console.log("this doesn't work yet");
-    //save this movie in the database
-    this.model.save();
+
+    //if this is a new movie, then save it and add it to the collection
+    if (this.model.isNew()) {
+      console.log("this is not saved, so save it and add it to the movies collection")
+      //save this movie in the database
+      this.model.save();
+      //add the movie to the collection
+      ReviewMi.movies.add(this.model);
+    }
+
+    console.log('this should take you to a new review page');
   }
 });

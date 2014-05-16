@@ -1,5 +1,6 @@
 ReviewMi.Collections.Movies = Backbone.Collection.extend({
   model: ReviewMi.Models.Movie,
+  url: '/movies',
 
   //to handle clicks on the search button to search for a movie
   searchOMDB: function (term, success) {

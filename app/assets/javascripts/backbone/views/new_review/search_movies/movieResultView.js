@@ -5,7 +5,7 @@ ReviewMi.Views.movieResultView = Backbone.View.extend({
   },
   render: function () {
     this.$el.html(this.template(this.model.toJSON()));
-    console.log(this.$el.html());
+    // console.log(this.$el.html());
     return this;
   },
   events: {

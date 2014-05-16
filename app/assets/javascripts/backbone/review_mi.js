@@ -17,6 +17,10 @@ window.ReviewMi = {
 };
 
 $(document).ready(function () {
+  //fetch all the movies in the database
+  ReviewMi.movies = new ReviewMi.Collections.Movies();
+  ReviewMi.movies.fetch();
+
   // start the backbone router
   ReviewMi.router = new ReviewMi.Routers.appRouter();
   Backbone.history.start({pushState: false});
