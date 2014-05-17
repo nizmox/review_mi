@@ -1,10 +1,11 @@
-ReviewMi.Views.appView = Backbone.View.extend({
-  el: '#app',
+ReviewMi.Views.loggedOutView = Backbone.View.extend({
+  el: '#user',
 
   initialize: function () {
-    this.template = _.template($('#appView').html() );
-    // this.$username = $('#username');
-    // this.$password = $('#password');
+    //unbind any existing event handlers
+    $(this.el).undelegate('#login', 'click');
+    
+    this.template = _.template($('#loggedOutView').html() );
   },
 
   render: function () {
@@ -12,8 +13,7 @@ ReviewMi.Views.appView = Backbone.View.extend({
   },
 
   events: {
-    'click #login': 'login',
-    'click #logout': 'logout'
+    'click #login': 'login'
   },
 
   login: function (event) {
@@ -37,28 +37,13 @@ ReviewMi.Views.appView = Backbone.View.extend({
       if (data.success === true) {
         //update the ReviewMi currentUser variable
         ReviewMi.currentUser = data.username;
-        // console.log(data.message);
+        //change view to logged out
+        var view = new ReviewMi.Views.loggedInView();
+        view.render();
       } else {
         //update the ReviewMi currentUser variable
         ReviewMi.currentUser = '';
-        // console.log(data.message);
       }
     });
-  },
-
-  logout: function (event) {
-
-    event.preventDefault();
-
-    var request = $.ajax({
-      type: 'DELETE',
-      dataType: 'json',
-      url: '/login'
-    //what to do on success
-    }).done(function (data) {
-      // console.log(data);
-      ReviewMi.currentUser = '';
-    });
-
   }
 });

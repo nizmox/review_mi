@@ -27,7 +27,10 @@ ReviewMi.Views.movieTitleView = Backbone.View.extend({
       //add the movie to the collection
       ReviewMi.movies.add(this.model);
       //save this movie in the database
-      this.model.save().done(this.redirect);
+      var self = this;
+      this.model.save().done(function () {
+        self.redirect();
+      });
     //this is not a new movie, so redirect immediately
     } else {
       this.redirect();

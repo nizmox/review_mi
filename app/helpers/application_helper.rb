@@ -9,8 +9,11 @@ module ApplicationHelper
       # if a result was found
       if user.present?
         user.username
+      # specified user_id could not be found
       else
+        # clear session
         session[:user_id] = nil
+        ''
       end
     else
       ''

@@ -12,16 +12,8 @@
 <script id="appView" type="text/x-underscore-template">
   <h1>ReviewMi</h1>
 
-  <p>Login here:</p>
-  <form>
-    <label>Username:</label>
-    <input type="text" id="username">
-    <label>Password:</label>
-    <input type="text" id="password">
-    <button id="login">Login</button>
-  </form>
-
-  logged in as: {{ ReviewMi.currentUser }} <button id="logout">Logout</button>
+  <div id="user">
+  </div>
 
   <p>Navigation</p>
   <ul>
@@ -31,6 +23,21 @@
 
   <div id="main">
   </div>
+</script>
+
+<script id="loggedOutView" type="text/x-underscore-template">
+  <p>Login here:</p>
+  <form>
+    <label>Username:</label>
+    <input type="text" id="username">
+    <label>Password:</label>
+    <input type="text" id="password">
+    <button id="login">Login</button>
+  </form>
+</script>
+
+<script id="loggedInView" type="text/x-underscore-template">
+  logged in as: {{ ReviewMi.currentUser }} <button id="logout">Logout</button>
 </script>
 
 <!-- HOME VIEW -->

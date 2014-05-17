@@ -18,8 +18,8 @@ window.ReviewMi = {
 
 $(document).ready(function () {
   //create and render the app view
-  var view = new ReviewMi.Views.appView();
-  view.render();
+  ReviewMi.appView = new ReviewMi.Views.appView();
+  ReviewMi.appView.render();
   //fetch all the movies in the database
   ReviewMi.movies = new ReviewMi.Collections.Movies();
   ReviewMi.movies.fetch().done(function() {
