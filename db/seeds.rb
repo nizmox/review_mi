@@ -12,7 +12,7 @@ Content.destroy_all
 Book.destroy_all
 Movie.destroy_all
 
-user = User.create(:username => 'test1234', :email => 'test@test.com', :password => 'abcd1234', :password_confirmation => 'abcd1234')
+user = User.create(:username => 'testuser', :email => 'test@test.com', :password => 'abcd1234', :password_confirmation => 'abcd1234')
 
 review = user.reviews.create(:rating => 10, :description => 'it was fucking amazing')
 

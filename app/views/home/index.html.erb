@@ -1,27 +1,41 @@
-<h1>ReviewMi</h1>
 
-<p>Login here:</p>
-<form>
-  <label for="">Username:</label>
-  <input type="text">
-  <label for="">Password:</label>
-  <input type="text">
-</form>
-
-<p>Links</p>
-<ul>
-  <li><a href="#">Home</a></li>
-  <li><a href="#search/movies">Search Movies</a></li>
-</ul>
-
-<div id="main">
+<div id="app">
 </div>
+
+<script>
+  ReviewMi.currentUser = '<%= current_user %>'
+</script>
 
 <!-- underscore.js templates -->
 
+<!-- APP VIEW -->
+<script id="appView" type="text/x-underscore-template">
+  <h1>ReviewMi</h1>
+
+  <p>Login here:</p>
+  <form>
+    <label>Username:</label>
+    <input type="text" id="username">
+    <label>Password:</label>
+    <input type="text" id="password">
+    <button id="login">Login</button>
+  </form>
+
+  logged in as: {{ ReviewMi.currentUser }} <button id="logout">Logout</button>
+
+  <p>Navigation</p>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#search/movies">Search Movies</a></li>
+  </ul>
+
+  <div id="main">
+  </div>
+</script>
+
 <!-- HOME VIEW -->
 
-<script id="homeView" type="text/x-underscore-template">     
+<script id="homeView" type="text/x-underscore-template">
   <h2>Hello World!</h2>
 
   <h3>Latest Reviews</h3>
