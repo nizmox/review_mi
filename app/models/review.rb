@@ -12,7 +12,7 @@
 #
 
 class Review < ActiveRecord::Base
-  attr_accessible :rating, :description
+  attr_accessible :rating, :description, :content_id
 
   validates :rating, :numericality => true
   validates :rating, :inclusion => { :in => 1..10 }

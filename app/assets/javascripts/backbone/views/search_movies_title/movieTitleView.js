@@ -47,6 +47,8 @@ ReviewMi.Views.movieTitleView = Backbone.View.extend({
   },
 
   redirect: function () {
-    ReviewMi.router.navigate('review/movie/' + this.model.get('id'), true);
+    //from the movie model, find hte content and content's id
+    var id = this.model.content().get('id');
+    ReviewMi.router.navigate('review/' + id, true);
   }
 });

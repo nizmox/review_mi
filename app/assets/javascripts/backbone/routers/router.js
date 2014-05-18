@@ -7,7 +7,7 @@ ReviewMi.Routers.appRouter = Backbone.Router.extend({
     'search/movies/:term': 'movieResultsList',
     'search/movies/title/:imdbID': 'movieTitle',
     //new review
-    'review/:content/:id': 'newReview'
+    'review/:id': 'newReview'
     //invalid url
     // '*anything': 'goHome'
   },
@@ -71,10 +71,10 @@ ReviewMi.Routers.appRouter = Backbone.Router.extend({
 
   },
 
-  newReview: function (content, id) {
-    if (content === 'movie') {
-      var model = ReviewMi.movies.get(id);
-    }
+  newReview: function (id) {
+    //find the content model associated with this route
+    var model = ReviewMi.contents.get(id);
+    
     var view = new ReviewMi.Views.newReview({model: model});
     view.render();
   },

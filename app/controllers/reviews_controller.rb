@@ -1,4 +1,8 @@
 class ReviewsController < ApplicationController
+
+  # THIS DOESN'T WORK
+  before_action :user_signed_in?, :only => [:create]
+
   def index
     #FIX: change this to all reviews of friends
     @reviews = Review.all
@@ -13,17 +17,13 @@ class ReviewsController < ApplicationController
   # end
 
   def create
-    binding.pry
+    #includes: content_id, rating, description
+    review = current_user.reviews.new(params[:review])
 
-    #current user
-    #content id?
-    
-    @review = Review.new(params)
-
-    if @review.save
-      render :action => 'show', :status => :created, :location => @review
+    if review.save
+      render :json => {:success => true, :message => "SUCCESS: review has been saved", :review => review}
     else
-      render :json => @review.errors, :status => :unprocessable_entity
+      render :json => {:success => false, :message => "ERROR: review could not be saved"}
     end
   end
 end

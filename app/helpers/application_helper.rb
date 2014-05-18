@@ -1,6 +1,7 @@
 module ApplicationHelper
 
-  def current_user
+  # returns the username of the signed in user (to store in javascript variable) or '' if not signed in
+  def current_username
     # check for a session - user_id
     user_id = session[:user_id]
     if user_id != nil
@@ -8,16 +9,14 @@ module ApplicationHelper
       user = User.where(:id => user_id).first
       # if a result was found
       if user.present?
-        user.username
+        return user.username
       # specified user_id could not be found
       else
         # clear session
         session[:user_id] = nil
-        ''
       end
-    else
-      ''
     end
+    return ''
   end
 
 end

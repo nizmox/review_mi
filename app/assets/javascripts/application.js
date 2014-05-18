@@ -17,4 +17,5 @@
 //= require backbone_rails_sync
 //= require backbone_datalink
 //= require backbone/review_mi
+//= require moment
 //= require_tree .

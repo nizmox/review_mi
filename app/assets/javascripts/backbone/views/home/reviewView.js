@@ -7,7 +7,20 @@ ReviewMi.Views.ReviewView = Backbone.View.extend({
   },
 
   render: function () {
-    this.$el.html(this.template(this.model.toJSON()));
+    var review = this.model;
+    var content = this.model.content();
+
+    //build a new js object with parameters required for view template
+    var tempObj = {
+      media_type: content.get('media_type'),
+      title: content.get('title'),
+      image: content.get('image'),
+      rating: review.get('rating'),
+      description: review.get('description'),
+      created_at: moment(review.get('created_at')).format('D-MMM-YYYY h:mma')
+    };
+
+    this.$el.html(this.template(tempObj));
     return this;
   }
 });

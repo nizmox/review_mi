@@ -20,16 +20,23 @@ $(document).ready(function () {
   //create and render the app view
   ReviewMi.appView = new ReviewMi.Views.appView();
   ReviewMi.appView.render();
-  
-  //instansiate the movies collection
-  ReviewMi.movies = new ReviewMi.Collections.Movies();
 
-  //fetch all the content in the database
+  //instansiate the collections
+  ReviewMi.movies = new ReviewMi.Collections.Movies();
+  ReviewMi.reviews = new ReviewMi.Collections.Reviews();
   ReviewMi.contents = new ReviewMi.Collections.Contents();
-  ReviewMi.contents.fetch().done(function() {
-    // start the backbone router
+  
+  $.when(
+    //fetch the 'review'
+    ReviewMi.reviews.fetch(),
+
+    //fetch the 'contents'
+    ReviewMi.contents.fetch()
+
+  ).then(function() {
+    //start the backbone router
     ReviewMi.router = new ReviewMi.Routers.appRouter();
-    Backbone.history.start({pushState: false});    
+    Backbone.history.start({pushState: false});   
+
   });
 });
-

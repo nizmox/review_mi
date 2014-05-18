@@ -19,12 +19,14 @@ class MoviesController < ApplicationController
       # create a response hash including the 'content'
       response = movie.attributes
       response[:content] = content.attributes
+      response[:success] = true
+      response[:messsage] = "SUCCESS: Movie #{content.title} has been saved to the database"
 
       render :json => response #movie.to_json
       return
     end
 
-    render :json => {:error => 'movie already exists in database'}
+    render :json => {:success => false, :message => 'ERROR: movie already exists in database'}
   end
   
 end

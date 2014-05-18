@@ -105,7 +105,7 @@ end
 # gem 'underscore-rails'
 
 #to allow better timestamp formatting
-# gem 'momentjs-rails'
+gem 'momentjs-rails'
 
 #backbone.js
 gem "rails-backbone"

@@ -3,7 +3,7 @@
 </div>
 
 <script>
-  ReviewMi.currentUser = '<%= current_user %>'
+  ReviewMi.currentUser = '<%= current_username %>'
 </script>
 
 <!-- underscore.js templates -->
@@ -47,14 +47,17 @@
 
   <h3>Latest Reviews</h3>
 
-  // to display all reviews of this user's friends
   <ul id="reviews">
   </ul>
 </script>
 
 <script id="reviewView" type="text/x-underscore-template">
-  <p>{{ rating }}</p>
-  <p>{{ description }}</p>
+  <p>{{ media_type }} - {{ title }}<p>
+  <img src="{{ image }}" class="img-thumb">
+  <p>Rating: {{ rating }}</p>
+  <p>Review: {{ description }}</p>
+  <p>Reviewed by: xxxx </p>
+  <p>Date: {{ created_at }} </p>
 </script>
 
 <!-- MOVIE SEARCH VIEW -->
@@ -96,7 +99,7 @@
 
 <script id="newReviewView" type="text/x-underscore-template">
   <h2>{{ title }}</h2>
-  <img class="image" src="{{ poster }}">
+  <img class="image" src="{{ image }}">
   <p>Write your review here...</p>
   <div>
     <div id="stars"></div>

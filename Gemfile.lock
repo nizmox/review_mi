@@ -72,6 +72,8 @@ GEM
     method_source (0.8.2)
     mime-types (1.25.1)
     minitest (4.7.5)
+    momentjs-rails (2.5.1)
+      railties (>= 3.1)
     multi_json (1.10.0)
     pg (0.17.1)
     polyglot (0.3.4)
@@ -172,6 +174,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   jbuilder (~> 1.2)
   jquery-rails
+  momentjs-rails
   pg
   protected_attributes
   pry-debugger
