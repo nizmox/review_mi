@@ -163,12 +163,39 @@
         1,
         null,
         1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
         1,
         null,
         null
       ],
       "/Users/Nizmox/Projects/WDI_4/other/review_mi/app/helpers/application_helper.rb": [
         1,
+        null,
+        null,
+        1,
+        null,
+        0,
+        0,
+        null,
+        0,
+        null,
+        0,
+        0,
+        null,
+        null,
+        null,
+        0,
+        null,
+        null,
+        0,
+        null,
+        null,
         null
       ],
       "/Users/Nizmox/Projects/WDI_4/other/review_mi/app/models/book.rb": [
@@ -201,6 +228,7 @@
         null,
         null,
         null,
+        null,
         1,
         null,
         1,
@@ -219,6 +247,9 @@
         null,
         null,
         null,
+        null,
+        null,
+        1,
         null,
         1,
         null,
@@ -571,6 +602,6 @@
         null
       ]
     },
-    "timestamp": 1400217825
+    "timestamp": 1400399402
   }
 }

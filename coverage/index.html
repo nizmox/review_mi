@@ -14,27 +14,27 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2014-05-16T15:23:45+10:00">2014-05-16T15:23:45+10:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2014-05-18T17:50:02+10:00">2014-05-18T17:50:02+10:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">100.0%</span></span>
+    (<span class="covered_percent"><span class="green">96.28%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.64
+         1.56
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>22</b> files in total.
-    <b>175</b> relevant lines. 
-    <span class="green"><b>175</b> lines covered</span> and
-    <span class="red"><b>0</b> lines missed </span>
+    <b>188</b> relevant lines. 
+    <span class="green"><b>181</b> lines covered</span> and
+    <span class="red"><b>7</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -52,12 +52,12 @@
       
       <tr>
         <td class="strong"><a href="#cbf5375b42f847b538c68e7a8c0d39cec10dfd2c" class="src_link" title="app/helpers/application_helper.rb">app/helpers/application_helper.rb</a></td>
-        <td class="green strong">100.0 %</td>
+        <td class="red strong">22.22 %</td>
+        <td>22</td>
+        <td>9</td>
         <td>2</td>
-        <td>1</td>
-        <td>1</td>
-        <td>0</td>
-        <td>1.0</td>
+        <td>7</td>
+        <td>0.2</td>
       </tr>
       
       <tr>
@@ -73,9 +73,9 @@
       <tr>
         <td class="strong"><a href="#7d0fff310670a0f1ef8fd0016e64de6ad4fb4a0b" class="src_link" title="app/models/content.rb">app/models/content.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>18</td>
-        <td>3</td>
-        <td>3</td>
+        <td>21</td>
+        <td>4</td>
+        <td>4</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -223,9 +223,9 @@
       <tr>
         <td class="strong"><a href="#8d6290ba0ae8c3803c1ae2a98c1844c630fa86fd" class="src_link" title="config/routes.rb">config/routes.rb</a></td>
         <td class="green strong">100.0 %</td>
+        <td>15</td>
         <td>8</td>
-        <td>4</td>
-        <td>4</td>
+        <td>8</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -233,7 +233,7 @@
       <tr>
         <td class="strong"><a href="#920c660abae215ef2293bd946d8b6fd8b4df3296" class="src_link" title="spec/models/content_spec.rb">spec/models/content_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>17</td>
+        <td>18</td>
         <td>3</td>
         <td>3</td>
         <td>0</td>
@@ -289,11 +289,11 @@
         <div class="source_table" id="cbf5375b42f847b538c68e7a8c0d39cec10dfd2c">
   <div class="header">
     <h3>app/helpers/application_helper.rb</h3>
-    <h4><span class="green">100.0 %</span> covered</h4>
+    <h4><span class="red">22.22 %</span> covered</h4>
     <div>
-      <b>1</b> relevant lines. 
-      <span class="green"><b>1</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
+      <b>9</b> relevant lines. 
+      <span class="green"><b>2</b> lines covered</span> and
+      <span class="red"><b>7</b> lines missed.</span>
     </div>
   </div>
   
@@ -307,6 +307,126 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="2">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="3">
+          
+          
+          <code class="ruby">  # returns the username of the signed in user (to store in javascript variable) or &#39;&#39; if not signed in</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def current_username</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby">    # check for a session - user_id</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="6">
+          
+          
+          <code class="ruby">    user_id = session[:user_id]</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="7">
+          
+          
+          <code class="ruby">    if user_id != nil</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby">      # perform a query for this user</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="9">
+          
+          
+          <code class="ruby">      user = User.where(:id =&gt; user_id).first</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="10">
+          
+          
+          <code class="ruby">      # if a result was found</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="11">
+          
+          
+          <code class="ruby">      if user.present?</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="12">
+          
+          
+          <code class="ruby">        return user.username</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
+          <code class="ruby">      # specified user_id could not be found</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="14">
+          
+          
+          <code class="ruby">      else</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="15">
+          
+          
+          <code class="ruby">        # clear session</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="16">
+          
+          
+          <code class="ruby">        session[:user_id] = nil</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="17">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="18">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="19">
+          
+          
+          <code class="ruby">    return &#39;&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="21">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="22">
           
           
           <code class="ruby">end</code>
@@ -429,8 +549,8 @@
     <h3>app/models/content.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>3</b> relevant lines. 
-      <span class="green"><b>3</b> lines covered</span> and
+      <b>4</b> relevant lines. 
+      <span class="green"><b>4</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -501,46 +621,64 @@
         <li class="never" data-hits="" data-linenumber="11">
           
           
-          <code class="ruby">#</code>
+          <code class="ruby">#  image      :text</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="12">
           
           
+          <code class="ruby">#</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="13">
+        <li class="covered" data-hits="1" data-linenumber="14">
           <span class="hits">1</span>
           
           <code class="ruby">class Content &lt; ActiveRecord::Base</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="14">
+        <li class="never" data-hits="" data-linenumber="15">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="15">
+        <li class="covered" data-hits="1" data-linenumber="16">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  attr_accessible :title, :image</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="17">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="18">
           
           
           <code class="ruby">  #relationships</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="16">
+        <li class="covered" data-hits="1" data-linenumber="19">
           <span class="hits">1</span>
           
           <code class="ruby">  has_many :reviews</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="17">
+        <li class="covered" data-hits="1" data-linenumber="20">
           <span class="hits">1</span>
           
           <code class="ruby">  belongs_to :media, :polymorphic =&gt; true</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="18">
+        <li class="never" data-hits="" data-linenumber="21">
           
           
           <code class="ruby">end</code>
@@ -645,25 +783,25 @@
         <li class="never" data-hits="" data-linenumber="14">
           
           
-          <code class="ruby">#  director    :string(255)</code>
+          <code class="ruby">#  director    :text</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="15">
           
           
-          <code class="ruby">#  writer      :string(255)</code>
+          <code class="ruby">#  writer      :text</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="16">
           
           
-          <code class="ruby">#  actors      :string(255)</code>
+          <code class="ruby">#  actors      :text</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="17">
           
           
-          <code class="ruby">#  plot        :string(255)</code>
+          <code class="ruby">#  plot        :text</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="18">
@@ -909,7 +1047,7 @@
         <li class="covered" data-hits="1" data-linenumber="15">
           <span class="hits">1</span>
           
-          <code class="ruby">  attr_accessible :rating, :description</code>
+          <code class="ruby">  attr_accessible :rating, :description, :content_id</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="16">
@@ -2181,8 +2319,8 @@
     <h3>config/routes.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>4</b> relevant lines. 
-      <span class="green"><b>4</b> lines covered</span> and
+      <b>8</b> relevant lines. 
+      <span class="green"><b>8</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -2220,19 +2358,61 @@
           <code class="ruby">  resources :reviews, :only =&gt; [:index, :show, :create]</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="6">
+        <li class="never" data-hits="" data-linenumber="6">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  resources :contents, :only =&gt; [:index]</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="8">
           <span class="hits">1</span>
           
           <code class="ruby">  resources :movies, :only =&gt; [:index, :create]</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="7">
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="10">
+          
+          
+          <code class="ruby">  #sessions</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="11">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  get &#39;/login&#39; =&gt; &#39;session#new&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="12">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  post &#39;/login&#39; =&gt; &#39;session#create&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="13">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  delete &#39;/login&#39; =&gt; &#39;session#destroy&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="14">
           
           
           <code class="ruby">  </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="8">
+        <li class="never" data-hits="" data-linenumber="15">
           
           
           <code class="ruby">end</code>
@@ -2319,40 +2499,46 @@
         <li class="never" data-hits="" data-linenumber="11">
           
           
-          <code class="ruby">#</code>
+          <code class="ruby">#  image      :text</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="12">
           
           
+          <code class="ruby">#</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="13">
+        <li class="covered" data-hits="1" data-linenumber="14">
           <span class="hits">1</span>
           
           <code class="ruby">require &#39;spec_helper&#39;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="14">
+        <li class="never" data-hits="" data-linenumber="15">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="15">
+        <li class="covered" data-hits="1" data-linenumber="16">
           <span class="hits">1</span>
           
           <code class="ruby">describe Content do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="16">
+        <li class="covered" data-hits="1" data-linenumber="17">
           <span class="hits">1</span>
           
           <code class="ruby">  pending &quot;add some examples to (or delete) #{__FILE__}&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="17">
+        <li class="never" data-hits="" data-linenumber="18">
           
           
           <code class="ruby">end</code>
@@ -2457,25 +2643,25 @@
         <li class="never" data-hits="" data-linenumber="14">
           
           
-          <code class="ruby">#  director    :string(255)</code>
+          <code class="ruby">#  director    :text</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="15">
           
           
-          <code class="ruby">#  writer      :string(255)</code>
+          <code class="ruby">#  writer      :text</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="16">
           
           
-          <code class="ruby">#  actors      :string(255)</code>
+          <code class="ruby">#  actors      :text</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="17">
           
           
-          <code class="ruby">#  plot        :string(255)</code>
+          <code class="ruby">#  plot        :text</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="18">

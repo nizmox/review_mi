@@ -32,9 +32,6 @@ ActiveRecord::Schema.define(version: 20140518010302) do
   end
 
   create_table "movies", force: true do |t|
-    t.string   "title"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "year"
     t.string   "rated"
     t.string   "released"
@@ -47,12 +44,13 @@ ActiveRecord::Schema.define(version: 20140518010302) do
     t.string   "language"
     t.string   "country"
     t.string   "awards"
-    t.string   "poster"
     t.string   "metascore"
     t.string   "imdb_id"
     t.string   "imdb_type"
     t.integer  "imdb_rating"
     t.integer  "imdb_votes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "reviews", force: true do |t|
