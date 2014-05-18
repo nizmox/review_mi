@@ -94,13 +94,15 @@
 
 <!-- NEW REVIEW VIEW -->
 
-<script id="newReview" type="text/x-underscore-template">
+<script id="newReviewView" type="text/x-underscore-template">
   <h2>{{ title }}</h2>
+  <img class="image" src="{{ poster }}">
   <p>Write your review here...</p>
   <div>
-    <form action="">
-      <input type="text">
-      <textarea name="" id="" cols="30" rows="10"></textarea>
+    <div id="stars"></div>
+    <form>
+      <textarea id="review" cols="120" rows="10"></textarea><br>
+      <button id="submit">Submit Review</button>
     </form>
   </div>
 </script>

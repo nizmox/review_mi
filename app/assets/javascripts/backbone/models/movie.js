@@ -47,8 +47,12 @@ ReviewMi.Models.Movie = Backbone.Model.extend({
     this.set('year',movieData.Year);
     this.set('imdb_id',movieData.imdbID);
     this.set('imdb_rating',movieData.imdbRating);
-    console.log('model: ',this);
+    // console.log('model: ',this);
+  },
+
+  // returns the content associated with this movie
+  content: function () {
+    var id = this.get('id');
+    return ReviewMi.contents.where({media_type: "Movie", media_id: id })[0];
   }
 });
-
-// imdbVotes: "N/A"

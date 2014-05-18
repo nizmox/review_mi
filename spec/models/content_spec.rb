@@ -8,6 +8,7 @@
 #  media_type :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  image      :text
 #
 
 require 'spec_helper'

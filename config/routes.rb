@@ -3,6 +3,8 @@ ReviewMi::Application.routes.draw do
   root 'home#index'
 
   resources :reviews, :only => [:index, :show, :create]
+
+  resources :contents, :only => [:index]
   resources :movies, :only => [:index, :create]
 
   #sessions

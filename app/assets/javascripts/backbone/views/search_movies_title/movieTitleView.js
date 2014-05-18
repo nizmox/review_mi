@@ -23,16 +23,24 @@ ReviewMi.Views.movieTitleView = Backbone.View.extend({
 
     //if this is a new movie, then save it and add it to the collection
     if (this.model.isNew()) {
-      console.log("this is not saved, so save it and add it to the movies collection")
+      console.log("this is not saved, so save it and add it to the movies collection");
       //add the movie to the collection
       ReviewMi.movies.add(this.model);
       //save this movie in the database
       var self = this;
-      this.model.save().done(function () {
+      this.model.save().done(function (response) {
+
+        //the save returns the content created also
+        //create a new content model with the response data and add it to the collection
+        var content = new ReviewMi.Models.Content(response.content);
+        ReviewMi.contents.add(content);
+        console.log('content: ',content);
+
         self.redirect();
       });
     //this is not a new movie, so redirect immediately
     } else {
+      console.log("this movie is already saved, so no need to save it");
       this.redirect();
     }
 

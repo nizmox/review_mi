@@ -11,10 +11,10 @@
 #  released    :string(255)
 #  runtime     :string(255)
 #  genre       :string(255)
-#  director    :string(255)
-#  writer      :string(255)
-#  actors      :string(255)
-#  plot        :string(255)
+#  director    :text
+#  writer      :text
+#  actors      :text
+#  plot        :text
 #  language    :string(255)
 #  country     :string(255)
 #  awards      :string(255)

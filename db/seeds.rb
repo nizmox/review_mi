@@ -14,22 +14,22 @@ Movie.destroy_all
 
 user = User.create(:username => 'testuser', :email => 'test@test.com', :password => 'abcd1234', :password_confirmation => 'abcd1234')
 
-review = user.reviews.create(:rating => 10, :description => 'it was fucking amazing')
+# review = user.reviews.create(:rating => 10, :description => 'it was fucking amazing')
 
-content = Content.create(:title => 'Alien vs Predator')
-review.content = content
-review.save
+# content = Content.create(:title => 'Alien vs Predator')
+# review.content = content
+# review.save
 
-movie = Movie.create(:title => 'Alien vs Predator')
-content.media = movie
-content.save
+# movie = Movie.create(:title => 'Alien vs Predator')
+# content.media = movie
+# content.save
 
-review2 = user.reviews.create(:rating => 2, :description => 'it was way too long')
+# review2 = user.reviews.create(:rating => 2, :description => 'it was way too long')
 
-content2 = Content.create(:title => 'War and Peace')
-review2.content = content2
-review2.save
+# content2 = Content.create(:title => 'War and Peace')
+# review2.content = content2
+# review2.save
 
-book = Book.create(:title => 'War and Peace')
-content2.media = book
-content2.save
+# book = Book.create(:title => 'War and Peace')
+# content2.media = book
+# content2.save

@@ -6,19 +6,24 @@ class ReviewsController < ApplicationController
     render :json => @reviews
   end
 
-  def show
-    @review = Review.find(params[:id])
+  # def show
+  #   @review = Review.find(params[:id])
 
-    render :json => @review
-  end
-
-  # def create
-  #   @review = Review.new(params)
-
-  #   if @review.save
-  #     render :action => 'show', :status => :created, :location => @review
-  #   else
-  #     render :json => @review.errors, :status => :unprocessable_entity
-  #   end
+  #   render :json => @review
   # end
+
+  def create
+    binding.pry
+
+    #current user
+    #content id?
+    
+    @review = Review.new(params)
+
+    if @review.save
+      render :action => 'show', :status => :created, :location => @review
+    else
+      render :json => @review.errors, :status => :unprocessable_entity
+    end
+  end
 end
