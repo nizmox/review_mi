@@ -39,20 +39,21 @@ ReviewMi.Views.newUserView = Backbone.View.extend({
         }
       }
     }).done(function(response) {
+      // registation failed
       if ( response.error ) {
         console.log("Error(s) occured, failed to signup ", response.errors);
 
         $errors = $('#errors');
         $errors.empty();
 
-        _.each(response.errors, function (message,field) {
-          // console.log(field + ': ',message.join(' AND '));
+        _.each(response.errors, function (message, field) {
           $errors.append('<li>' + field + ': ' + message.join(' AND ') + '</li>');
         });
 
         //clear out the password fields
         $('#reg-password').val('');
         $('#reg-password-conf').val('');
+      // registation successful
       } else {
         ReviewMi.currentUser = response.username;
         // redirect the user to the homepage
