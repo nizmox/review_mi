@@ -57,8 +57,8 @@ class MoviesController < ApplicationController
       response = {}
       response[:movie] = movie.attributes
       response[:content] = content.attributes
-      response[:success] = true
-      response[:messsage] = "SUCCESS: Movie #{content.title} has been saved to the database"
+      # response[:success] = true
+      # response[:messsage] = "SUCCESS: Movie #{content.title} has been saved to the database"
 
       render :json => response
     else

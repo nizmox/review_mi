@@ -6,9 +6,12 @@
   ReviewMi.currentUser = '<%= current_username %>'
 </script>
 
-<!-- underscore.js templates -->
+<!-- ======================= -->
+<!-- UNDERSCORE.JS TEMPLATES -->
+<!-- ======================= -->
 
 <!-- APP VIEW -->
+
 <script id="appView" type="text/x-underscore-template">
   <h1>ReviewMi</h1>
 
@@ -50,12 +53,15 @@
 </script>
 
 <script id="reviewView" type="text/x-underscore-template">
-  <p>{{ media_type }} - {{ title }}<p>
-  <img src="{{ image }}" class="img-thumb">
-  <p>Rating: {{ rating }}</p>
-  <p>Review: {{ description }}</p>
-  <p>Reviewed by: {{ user.username }} </p>
-  <p>Date: {{ created_at }} </p>
+  <div class="review">
+    <h3>{{ media_type }} - {{ title }}</h3>
+    <img src="{{ image }}" class="img-thumb">
+    <p>Rating: {{ rating }}</p>
+    <p>Review: {{ description }}</p>
+    <p>Reviewed by: {{ user.username }} </p>
+    <p>Date: {{ created_at }} </p>
+  </div>
+  <a href="#review/new/{{ content_id }}">Review this yourself</a>
 </script>
 
 <!-- MOVIE SEARCH VIEW -->
@@ -84,7 +90,7 @@
 <script id="movieTitleView" type="text/x-underscore-template">
   
   <div class="info">
-    <p>{{ title }}<p>
+    <h2>{{ title }}</h2>
     <img src="{{ image }}">
     <p>Year: {{ year }}</p>
     <p>Genre: {{ genre }}</p>
@@ -109,6 +115,15 @@
       <button id="submit">Submit Review</button>
     </form>
   </div>
+</script>
+
+<!-- SHOW REVIEW VIEW -->
+
+<script id="showReviewView" type="text/x-underscore-template">
+  <h2>{{ title }}</h2>
+  <img class="image" src="{{ image }}">
+  <p><b>Rating:</b> <span id="stars"></span></p>
+  <p><b>Review:</b> {{ description }}</p>
 </script>
 
 

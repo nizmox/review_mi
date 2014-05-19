@@ -4,18 +4,21 @@ ReviewMi.Routers.appRouter = Backbone.Router.extend({
     '': 'home',
     //movie search
     'search/movies': 'movieSearch',
-    //movie search with results
+    //movie search with results (using a search term - movie title)
     'search/movies/:term': 'movieResultsList',
-    //movie search specific title
+    //movie search specific title (using imdbID)
     'search/movies/title/:imdbID': 'movieTitle',
-    //new review
-    'review/:id': 'newReview'
+    //new review (using content id)
+    'review/new/:id': 'newReview',
+    //view a review (using review id)
+    'review/:id': 'showReview'
     //invalid url
     // '*anything': 'goHome'
   },
 
   //home page
   home: function () {
+    console.log('rendering home')
     var view = new ReviewMi.Views.homeView({collection: ReviewMi.reviews});
     view.render();
   },
@@ -47,20 +50,20 @@ ReviewMi.Routers.appRouter = Backbone.Router.extend({
 
     var movie = ReviewMi.movies.where({ imdb_id: imdbID })[0];
 
+    // to call once movie is found in collection or fetched from OMDB and saved in database
     var render = function (movie) {
       var view = new ReviewMi.Views.movieTitleView({model: movie});
       view.render(); 
     };
     
-    //if movie does not already exist
-    if ( !movie ) {
-      //perform search on omdb for this movie
-      movie = this.fetchMovie(imdbID, render);
-
     //movie already exists in movies collection, just render the view
-    } else {
+    if ( movie ) {
       console.log('this movie already exists in movies collection, no search needed');
       render(movie);
+    //if movie does not already exist
+    } else {
+      //perform search on omdb for this movie
+      movie = this.fetchMovie(imdbID, render);
     }
 
   },
@@ -73,6 +76,17 @@ ReviewMi.Routers.appRouter = Backbone.Router.extend({
     var view = new ReviewMi.Views.newReview({model: model});
     view.render();
   },
+
+  showReview: function (id) {
+    //find the content model associated with this route
+    var model = ReviewMi.reviews.get(id);
+
+    var view = new ReviewMi.Views.showReview({model: model});
+    view.render();
+
+    //setup rating using raty.js
+    $('#stars').raty({ path: 'assets/raty', number: 10, readOnly: true, score: model.get('rating') });
+  },
   
   // goHome: function () {
   //   document.location.hash = '';
@@ -82,7 +96,7 @@ ReviewMi.Routers.appRouter = Backbone.Router.extend({
   // HELPER FUNCTIONS (NOT ROUTES)
   //-------------------------------
 
-  fetchMovie: function(imdbID) {
+  fetchMovie: function(imdbID, success) {
     console.log('this is a new movie, searching omdb...');
 
     var request = $.ajax({

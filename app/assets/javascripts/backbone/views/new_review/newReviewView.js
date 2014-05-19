@@ -20,24 +20,28 @@ ReviewMi.Views.newReview = Backbone.View.extend({
   },
 
   submitReview: function(event) {
+    //maintain this using self
+    // var self = this;
+
     event.preventDefault();
 
-    var request = $.ajax({
-      type: 'POST',
-      dataType: 'json',
-      url: '/reviews',
-      data: {
-        review: {
-          content_id: this.model.get('id'),
-          rating: $('#stars').raty('score'),
-          description: $('#review').val()
-        }
-      }
-    }).done(function(response) {
-      // create a new review model and add to the reviews collection
-      var review = new ReviewMi.Models.Review(response.review);
-      ReviewMi.reviews.add(review);
-
+    review = new ReviewMi.Models.Review({
+      content_id: this.model.get('id'),
+      rating: $('#stars').raty('score'),
+      description: $('#review').val()
     });
+
+    review.save().done(function(response) {
+
+      if (response.error === undefined) {
+        console.log('review saved successfully');
+        ReviewMi.reviews.add(review);
+
+        ReviewMi.router.navigate('review/' + review.get('id'), true);
+      } else {
+        console.log('review failed to save');
+      }
+    });
+
   }
 });

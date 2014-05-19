@@ -1,6 +1,5 @@
 class ReviewsController < ApplicationController
 
-  # THIS DOESN'T WORK
   before_action :signin_required, :only => [:create]
 
   def index
@@ -10,27 +9,26 @@ class ReviewsController < ApplicationController
     render :json => reviews #, :include => {:user => {:only => :username}}
   end
 
-  # def show
-  #   @review = Review.find(params[:id])
-
-  #   render :json => @review
-  # end
-
   def create
+
+    #escape the review text submitted to the server
+    safe_params = params[:review]
+    safe_params[:description] = CGI::escapeHTML(safe_params[:description])
+
     #includes: content_id, rating, description
-    review = current_user.reviews.new(params[:review])
+    review = current_user.reviews.new(safe_params)
 
     if review.save
-      render :json => {:success => true, :message => "SUCCESS: review has been saved", :review => review}
+      render :json => review
     else
-      render :json => {:success => false, :message => "ERROR: review could not be saved"}
+      render :json => {:error => true, :message => "ERROR: review could not be saved"}
     end
   end
 
   private
   def signin_required
     unless current_user
-      render :json => {:success => false, :status => 401, :message => "ERROR: you must be signed in to create a review"}
+      render :json => {:error => true, :status => 401, :message => "ERROR: you must be signed in to create a review"}
     end
   end
 end

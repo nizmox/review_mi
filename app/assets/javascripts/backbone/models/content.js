@@ -8,6 +8,8 @@ ReviewMi.Models.Content = Backbone.Model.extend({
       var movie = new ReviewMi.Models.Movie(response.media);
       //add this movie to the collection
       ReviewMi.movies.add(movie);
+      //remove the media from the response
+      delete response['media'];
     }
     return response;
   },

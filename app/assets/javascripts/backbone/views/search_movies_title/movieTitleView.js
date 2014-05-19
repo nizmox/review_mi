@@ -29,6 +29,6 @@ ReviewMi.Views.movieTitleView = Backbone.View.extend({
   createReview: function () {
     //from the movie model, find hte content and content's id
     var id = this.model.content().get('id');
-    ReviewMi.router.navigate('review/' + id, true);
+    ReviewMi.router.navigate('review/new/' + id, true);
   }
 });

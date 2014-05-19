@@ -29,8 +29,10 @@ ReviewMi.Views.loggedInView = Backbone.View.extend({
       //set currentUser to blank
       ReviewMi.currentUser = '';
       //take the user back to the home page and re-render
-      ReviewMi.router.navigate('/', true);
+      ReviewMi.router.navigate('/');
       ReviewMi.appView.render();
+      //this is required as if you are already on the home page and you logout, the page does not re-render
+      ReviewMi.router.home();
     });
 
   }
