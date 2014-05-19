@@ -11,8 +11,15 @@ ReviewMi.Views.movieTitleView = Backbone.View.extend({
   },
 
   render: function () {
+    // generate 'data' needed to render template (includes movie + content data)
+    var data = this.model.toJSON();
+
+    var content = this.model.content();
+    data.title = content.get('title');
+    data.image = content.get('image');
+
     //render the view in the #main element
-    this.$el.html(this.template(this.model.toJSON()));
+    this.$el.html(this.template(data));
   },
 
   events: {
@@ -20,33 +27,6 @@ ReviewMi.Views.movieTitleView = Backbone.View.extend({
   },
 
   createReview: function () {
-
-    //if this is a new movie, then save it and add it to the collection
-    if (this.model.isNew()) {
-      console.log("this is not saved, so save it and add it to the movies collection");
-      //add the movie to the collection
-      ReviewMi.movies.add(this.model);
-      //save this movie in the database
-      var self = this;
-      this.model.save().done(function (response) {
-
-        //the save returns the content created also
-        //create a new content model with the response data and add it to the collection
-        var content = new ReviewMi.Models.Content(response.content);
-        ReviewMi.contents.add(content);
-        console.log('content: ',content);
-
-        self.redirect();
-      });
-    //this is not a new movie, so redirect immediately
-    } else {
-      console.log("this movie is already saved, so no need to save it");
-      this.redirect();
-    }
-
-  },
-
-  redirect: function () {
     //from the movie model, find hte content and content's id
     var id = this.model.content().get('id');
     ReviewMi.router.navigate('review/' + id, true);

@@ -22,15 +22,16 @@ $(document).ready(function () {
   ReviewMi.appView.render();
 
   //instansiate the collections
-  ReviewMi.movies = new ReviewMi.Collections.Movies();
   ReviewMi.reviews = new ReviewMi.Collections.Reviews();
+  
   ReviewMi.contents = new ReviewMi.Collections.Contents();
+  ReviewMi.movies = new ReviewMi.Collections.Movies();
   
   $.when(
     //fetch the 'review'
     ReviewMi.reviews.fetch(),
 
-    //fetch the 'contents'
+    //fetch the 'contents' (this includes fetching and parsing movies)
     ReviewMi.contents.fetch()
 
   ).then(function() {

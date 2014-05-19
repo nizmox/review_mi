@@ -63,6 +63,9 @@ gem 'protected_attributes'
 #to annotate our models
 gem 'annotate'
 
+#to fetch http data from urls
+gem 'httparty'
+
 #enables use of ENV hash using .env file (DONT FORGET TO MODIFY .gitignore !)
 # gem 'dotenv-rails'
 

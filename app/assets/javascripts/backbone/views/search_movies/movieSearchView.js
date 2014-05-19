@@ -24,7 +24,7 @@ ReviewMi.Views.movieSearchView = Backbone.View.extend({
     //prevent default form submit
     event.preventDefault();
 
-    console.log(this.$searchText);
+    console.log('searching for: ',this.$searchText.val());
 
     ReviewMi.router.navigate('search/movies/' + encodeURI(this.$searchText.val()), true);
   }

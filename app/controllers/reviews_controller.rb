@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
 
   # THIS DOESN'T WORK
-  before_action :user_signed_in?, :only => [:create]
+  # before_action :user_signed_in?, :only => [:create]
 
   def index
     #FIX: change this to all reviews of friends
@@ -26,4 +26,12 @@ class ReviewsController < ApplicationController
       render :json => {:success => false, :message => "ERROR: review could not be saved"}
     end
   end
+
+  # private
+  # def user_needed
+  #   unless current_user
+  #     render :json => {:success => false, :message => "ERROR: you must be signed in to create a review"}, 
+  #                     :status => 401
+  #   end
+  # end
 end

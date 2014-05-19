@@ -58,6 +58,9 @@ GEM
     erubis (2.7.0)
     execjs (2.0.2)
     hike (1.2.3)
+    httparty (0.13.1)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.9)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
@@ -75,6 +78,7 @@ GEM
     momentjs-rails (2.5.1)
       railties (>= 3.1)
     multi_json (1.10.0)
+    multi_xml (0.5.5)
     pg (0.17.1)
     polyglot (0.3.4)
     protected_attributes (1.0.7)
@@ -172,6 +176,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   coffee-rails (~> 4.0.0)
+  httparty
   jbuilder (~> 1.2)
   jquery-rails
   momentjs-rails

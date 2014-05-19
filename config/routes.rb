@@ -5,7 +5,9 @@ ReviewMi::Application.routes.draw do
   resources :reviews, :only => [:index, :show, :create]
 
   resources :contents, :only => [:index]
-  resources :movies, :only => [:index, :create]
+
+  resources :movies, :only => [:create]
+  get '/movies/search/:imdb_id' => 'movies#omdb_fetch'
 
   #sessions
   get '/login' => 'session#new'

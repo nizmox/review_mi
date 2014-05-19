@@ -4,7 +4,9 @@ ReviewMi.Routers.appRouter = Backbone.Router.extend({
     '': 'home',
     //movie search
     'search/movies': 'movieSearch',
+    //movie search with results
     'search/movies/:term': 'movieResultsList',
+    //movie search specific title
     'search/movies/title/:imdbID': 'movieTitle',
     //new review
     'review/:id': 'newReview'
@@ -14,12 +16,8 @@ ReviewMi.Routers.appRouter = Backbone.Router.extend({
 
   //home page
   home: function () {
-    ReviewMi.reviews = new ReviewMi.Collections.Reviews();
-    ReviewMi.reviews.fetch().done(function(results) {
-      //render a view for each review
-      var view = new ReviewMi.Views.homeView({collection: ReviewMi.reviews});
-      view.render();
-    });
+    var view = new ReviewMi.Views.homeView({collection: ReviewMi.reviews});
+    view.render();
   },
 
   //page to search for a movie to then review
@@ -51,16 +49,30 @@ ReviewMi.Routers.appRouter = Backbone.Router.extend({
     
     //if movie does not already exist
     if ( _.isEmpty( movieArr ) ) {
-      console.log('this is a new movie, searching...');
-      //create a new movie object
-      movie = new ReviewMi.Models.Movie();
+      console.log('this is a new movie, searching omdb...');
 
-      //search for this movie and render view on completion
-      movie.searchOMDB(imdbID, function () {
-        //render the single movie view
+      var request = $.ajax({
+        type: 'GET',
+        dataType: 'json',
+        url: '/movies/search/' + imdbID
+        // data: { s: searchTerm }
+      //what to do on success
+      }).done(function (data) {
+
+        // create a new 'content' and 'movie' and add these to the respective collections
+        var content = new ReviewMi.Models.Content(data.content);
+        var movie = new ReviewMi.Models.Movie(data.movie);
+
+        ReviewMi.contents.add(content);
+        ReviewMi.movies.add(movie);
+
+        console.log('move ' + imdbID + ' has been found, ' + content.get('title') + ' has been added to the movies collection');
+
         var view = new ReviewMi.Views.movieTitleView({model: movie});
         view.render();
+
       });
+
     //movie already exists in movies collection, just render the view
     } else {
       console.log('this movie already exists in movies collection, no search needed');
