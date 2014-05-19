@@ -9,6 +9,8 @@ ReviewMi::Application.routes.draw do
   resources :movies, :only => [:create]
   get '/movies/search/:imdb_id' => 'movies#omdb_fetch'
 
+  resources :users, :only => [:create]
+
   #sessions
   get '/login' => 'session#new'
   post '/login' => 'session#create'

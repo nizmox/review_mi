@@ -11,14 +11,15 @@ ReviewMi.Routers.appRouter = Backbone.Router.extend({
     //new review (using content id)
     'review/new/:id': 'newReview',
     //view a review (using review id)
-    'review/:id': 'showReview'
+    'review/:id': 'showReview',
+    //signup for an account
+    'users/signup': 'newUser'
     //invalid url
     // '*anything': 'goHome'
   },
 
   //home page
   home: function () {
-    console.log('rendering home')
     var view = new ReviewMi.Views.homeView({collection: ReviewMi.reviews});
     view.render();
   },
@@ -73,7 +74,7 @@ ReviewMi.Routers.appRouter = Backbone.Router.extend({
     //find the content model associated with this route
     var model = ReviewMi.contents.get(id);
     
-    var view = new ReviewMi.Views.newReview({model: model});
+    var view = new ReviewMi.Views.newReviewView({model: model});
     view.render();
   },
 
@@ -86,6 +87,11 @@ ReviewMi.Routers.appRouter = Backbone.Router.extend({
 
     //setup rating using raty.js
     $('#stars').raty({ path: 'assets/raty', number: 10, readOnly: true, score: model.get('rating') });
+  },
+
+  newUser: function () {
+    var view = new ReviewMi.Views.newUserView();
+    view.render();
   },
   
   // goHome: function () {

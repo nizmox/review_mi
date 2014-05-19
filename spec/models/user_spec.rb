@@ -96,6 +96,13 @@ describe User do
         subject.errors.messages[:password].include? "cannot include whitespace characters"
       end
 
+      # it "must match the password confirmation" do
+      #   subject.password = 'newpass1'
+      #   subject.password_confirmation = 'newpass2' 
+      #   subject.valid?.should be_false
+      #   subject.errors.messages[:password_confirmation].include? "doesn\'t match Password"
+      # end
+
     end
   end
 end

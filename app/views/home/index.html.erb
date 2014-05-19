@@ -37,6 +37,7 @@
     <input type="password" id="password">
     <button id="login">Login</button>
   </form>
+  <a href="#users/signup">Register</a>
 </script>
 
 <script id="loggedInView" type="text/x-underscore-template">
@@ -126,4 +127,23 @@
   <p><b>Review:</b> {{ description }}</p>
 </script>
 
+<!-- NEW USER VIEW -->
 
+<script id="newUserView" type="text/x-underscore-template">
+
+<h2>Register Here</h2>
+
+<ul id="errors"></ul>
+
+<form id="register">
+  <label>Email:</label>
+  <input type="text" id="reg-email">
+  <label>Username:</label>
+  <input type="text" id="reg-username">
+  <label>Password:</label>
+  <input type="password" id="reg-password">
+  <label>Password Confirmation:</label>
+  <input type="password" id="reg-password-conf">
+  <button id="create-account">Create Account</button>
+</form>
+</script>

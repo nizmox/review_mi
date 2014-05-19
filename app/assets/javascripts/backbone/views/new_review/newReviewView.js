@@ -1,4 +1,4 @@
-ReviewMi.Views.newReview = Backbone.View.extend({
+ReviewMi.Views.newReviewView = Backbone.View.extend({
   el: '#main',
 
   initialize: function () {

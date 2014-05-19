@@ -89,7 +89,7 @@ end
 #AWS IMAGE UPLOAD
 
 #supports user logins and image uploads
-# gem 'rails_12factor'
+gem 'rails_12factor'
 
 #allows upload of Profile Avatar images to Heroku from Amazon S3
 # gem 'carrierwave'
