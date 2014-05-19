@@ -22,13 +22,11 @@ class User < ActiveRecord::Base
 
   validates :password, :length => { :minimum => 8 }, 
                        :format => { with: /\A\S+\z/, message: "cannot include whitespace characters"},
-                       :presence => { :on => :create }, 
-                       # password must match password_confirmation
-                       :confirmation => true
+                       :presence => { :on => :create }
+                       # password must match password_confirmation (automatic)
 
   #relationships
   has_many :reviews
-  # has_many :content, through :reviews
 
   #use bcrypt to convert password to a password digest
   has_secure_password

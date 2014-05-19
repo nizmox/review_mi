@@ -89,19 +89,19 @@ describe User do
         subject.errors.messages[:password].include? "is too short (minimum is 8 characters)"
       end
 
-      it "does not contain whitespace" do
+      it "should not contain whitespace" do
         subject.password = 'ABCD abcd'
         subject.password_confirmation = 'ABCD abcd' 
         subject.valid?.should be_false
         subject.errors.messages[:password].include? "cannot include whitespace characters"
       end
 
-      # it "must match the password confirmation" do
-      #   subject.password = 'newpass1'
-      #   subject.password_confirmation = 'newpass2' 
-      #   subject.valid?.should be_false
-      #   subject.errors.messages[:password_confirmation].include? "doesn\'t match Password"
-      # end
+      it "must match the password confirmation" do
+        subject.password = 'newpass1'
+        subject.password_confirmation = 'newpass2' 
+        subject.valid?.should be_false
+        subject.errors.messages[:password_confirmation].include? "doesn\'t match Password"
+      end
 
     end
   end

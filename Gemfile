@@ -86,10 +86,12 @@ group :development, :test do
   gem 'shoulda-matchers'
 end
 
-#AWS IMAGE UPLOAD
+#required for heroku deployment
+group :production do
+  gem 'rails_12factor'
+end
 
-#supports user logins and image uploads
-gem 'rails_12factor'
+#AWS IMAGE UPLOAD
 
 #allows upload of Profile Avatar images to Heroku from Amazon S3
 # gem 'carrierwave'
