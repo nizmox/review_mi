@@ -29,6 +29,8 @@ class Movie < ActiveRecord::Base
   :country, :awards, :metascore, :imdb_id, :imdb_type, :imdb_rating, :imdb_votes
 
   has_one :content, :as => :media
+
+  validates :imdb_id, :presence => true
 end
 
 
