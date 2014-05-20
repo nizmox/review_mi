@@ -52,10 +52,9 @@ test:
   username: Nizmox
   password:
 
-# production:
-#   adapter: postgresql
-#   encoding: unicode
-#   database: review_mi_production
-#   pool: 5
-#   username: review_mi
-#   password:
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: review_mi_production
+  pool: 5
+  password:
