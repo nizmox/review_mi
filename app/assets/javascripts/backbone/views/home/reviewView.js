@@ -10,7 +10,7 @@ ReviewMi.Views.ReviewView = Backbone.View.extend({
     var review = this.model;
     var content = this.model.content();
 
-    var revDescTrunc = review.get('description').split(' ').slice(30).join(' ');
+    var revDescTrunc = this.truncate( review.get('description'), 100);
 
     //build a new js object with parameters required for view template
     var tempObj = {
@@ -25,6 +25,7 @@ ReviewMi.Views.ReviewView = Backbone.View.extend({
     };
 
     this.$el.html(this.template(tempObj));
+
     return this;
   },
 
@@ -35,5 +36,18 @@ ReviewMi.Views.ReviewView = Backbone.View.extend({
   showReview: function () {
     //redirect you to the showReviewView
     ReviewMi.router.navigate('review/' + this.model.get('id'), true);
+  },
+
+  truncate: function (text, length) {
+    var textArr = text.split(' ');
+    var textTrunc = null;
+
+    if (textArr.length > length) {
+      textTrunc = textArr.slice(0,length).join(' ') + '... (see more)';
+    } else {
+      textTrunc = textArr.slice(0,length).join(' ');
+    }
+
+    return textTrunc;
   }
 });

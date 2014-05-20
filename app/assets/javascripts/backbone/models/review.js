@@ -2,6 +2,7 @@ ReviewMi.Models.Review = Backbone.Model.extend({
   urlRoot: '/reviews',
 
   parse: function (response) {
+
     //reformat and flatten response to include username
     response.username = response.user.username;
     delete response['user'];

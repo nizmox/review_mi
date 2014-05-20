@@ -26,8 +26,9 @@ ReviewMi.Views.loggedInView = Backbone.View.extend({
       url: '/login'
     //what to do on success
     }).done(function (data) {
-      //set currentUser to blank
-      ReviewMi.currentUser = '';
+      //perform javascript logout
+      session.logout();
+
       //take the user back to the home page and re-render
       ReviewMi.router.navigate('/');
       ReviewMi.appView.render();

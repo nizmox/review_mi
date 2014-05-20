@@ -1,41 +1,322 @@
-#main {
-  max-width: 960px;
+//https://kuler.adobe.com/Green-%26-Dark-Blue-color-theme-3854662/edit/?copy=true&base=2&rule=Custom&selected=0&name=Copy%20of%20Green%20%26%20Dark%20Blue&mode=rgb&rgbvalues=1,1,1,0.6823529411764706,0.6823529411764706,0.6823529411764706,0.9019607843137255,0.2980392156862745,0.4,0.17647058823529413,0.24313725490196078,0.3137254901960784,0.10588235294117647,0.7372549019607844,0.6078431372549019&swatchOrder=0,1,2,3,4
+$white: rgb(255,255,255); 
+$gray: rgb(174,174,174);
+$red: rgb(230,76,102);
+$blue: rgb(45,62,80);
+$aqua: rgb(27,188,155);
+$shadow: 1px 1px 1px #000, 3px 3px 5px $blue;
+
+//--------------------
+// MIXINS
+//--------------------
+@mixin content-header {
+  padding: 5px 0;
+  margin: 0;
+
+  font-size: 26px;
+  text-align: center;
+  color: $white;
+  text-shadow: $shadow;
+
+  background-color: $gray;
 }
+
+@mixin aqua-button {
+  display: inline-block;
+
+  padding: 8px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  border: 1px solid white;
+
+  background-color: $aqua;
+  text-decoration: none;
+  color: white;
+}
+
+* {
+  font-family: arial;
+}
+
+//--------------------
+// LOGIN / LOGGED OUT
+//--------------------
+
+.logged-in .logged-in-only {
+  visibility: visible;
+}
+
+.logged-in-only {
+  visibility: hidden;
+}
+
+//-----------
+// UNIVERSAL
+//-----------
+
+body {
+  background-color: $blue;
+}
+
+#container {
+  max-width: 960px;
+  margin: 0 auto;
+
+  background-color: $white;
+
+  //shadow effect
+  -moz-box-shadow:    3px 3px 10px #000;
+  -webkit-box-shadow: 3px 3px 10px #000;
+  box-shadow:         3px 3px 10px #000;
+}
+
+#banner {
+  background-color: $gray;
+  position: relative;
+
+  #heading {
+    display: inline-block;
+    margin: 0;
+    padding: 10px 20px;
+    // text-align: center;
+    font-family: 'Pacifico', cursive;
+    text-shadow: $shadow;
+    font-size: 40px;
+    color: $white;
+
+    // background-color: yellow;
+  }
+
+  #user {
+    position: absolute;
+    top: 35px;
+    right: 10px;
+
+    width: 460px;
+
+    text-align: right;
+
+    p {
+      font-size: 14px;
+    }
+
+    form#login {
+      display: inline-block;
+      font-size: 14px;
+
+      label {
+        font-size: 12px;
+        color: $blue;
+      }
+      
+      button {
+        background-color: $blue;
+        color: $white;
+        border-radius: 8px;
+      }
+    }
+
+    //registration link
+    .register {
+      font-size: 12px; 
+      color: $blue;
+    }
+  }
+}
+
+#navbar {
+  list-style: none;
+  margin: 0;
+  padding: 0 10px;
+  background-color: $red;
+
+  li {
+    display: inline-block;
+
+    a {
+      display: block;
+      padding: 10px 10px;
+      text-decoration: none;
+      color: white;
+
+      &:hover {
+        background-color: $blue;
+        // color: black;
+      }
+    }    
+  }
+}
+
+#footer {
+  p {
+    padding: 5px 0;
+    margin: 0;
+
+    text-align: center;
+    font-size: 12px;
+
+    background-color: $gray;
+  }
+}
+
+//-------------------
+// IN MULTIPLE VIEWS
+//-------------------
+
+#page-heading {
+  margin: 0;
+  padding: 5px 20px;
+
+  font-family: 'Pacifico', cursive;
+  font-size: 30px;
+  color: white;
+  text-shadow: $shadow;
+
+  background-color: $aqua;
+}
+
+//-----------
+// HOME VIEW
+//-----------
 
 #reviews {
   list-style: none;
   padding: 0;
 
-  h3.title {
-    background-color: gray;
-    font-size: 30px;
-    text-align: center;
-    padding: 5px 0;
-    margin: 0;
+  li {
+    margin: 10px 0;
+    border-bottom: 5px solid $gray;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    h3.title {
+      font-size: 26px;
+      text-align: center;
+      padding: 5px 0;
+      margin: 0;
+
+      text-shadow: $shadow;
+      background-color: $gray;
+      color: $white;
+    }
+
+    .img-thumb {
+      display: inline-block;
+      vertical-align: top;
+      max-width: 150px;
+      max-height: 222px;
+    }
+
+    .details {
+      display: inline-block;
+      vertical-align: top;
+      width: 790px;
+      padding: 0 10px;
+
+      // background-color: green;
+
+      p {
+        margin: 10px 0;
+        font-size: 14px;
+      }
+
+      a.review-this {
+        @include aqua-button;
+      }
+    }
+  }//li
+}//#reviews
+
+//--------------
+// MOVIE SEARCH
+//--------------
+
+#movie-search {
+  padding: 5px 10px;
+
+  #search-text {
+    font-size: 14px;
+    width: 300px;
   }
 
-  .img-thumb {
+  button {
+    font-size: 14px;
+  }
+}
+
+ul.movies-list {
+  list-style: none;
+  padding: 0;
+
+  li {
+    display: block;
+    padding: 5px 10px;
+    border: 1px solid black;
+    background-color: gray;
+
+    &:hover {
+      background-color: black;
+      color: white;
+      cursor: pointer;
+    }
+  }
+}
+
+//------------------
+// SHOW REVIEW VIEW
+//------------------
+
+#show-review {
+  h2 {
+    @include content-header;
+  }
+
+  img {
     display: inline-block;
     vertical-align: top;
-    max-width: 150px;
-    max-height: 222px;
+    max-width: 300px;
+  }
+
+  #content {
+    display: inline-block;
+    vertical-align: top;
+    width: 640px;
+    padding: 0 10px;
+    background-color: green;
+
+    p {
+      font-size: 14px;
+    }
+
+    a.back {
+      @include aqua-button;
+    }
+  }
+}
+
+//------------------
+// MOVIE TITLE VIEW
+//------------------
+.movie-title {
+  background-color: pink;
+
+  h2 {
+    @include content-header;
+  }
+
+  img {
+    display: inline-block;
+    vertical-align: top;
   }
 
   .details {
     display: inline-block;
     vertical-align: top;
-    background-color: green;
-    width: 810px;
+    width: 660px;
+    background-color: blue;
   }
 }
 
-.review {
-  background-color: orange;
-}
 
-
-
-
-.review:hover {
-  cursor: pointer;
-}

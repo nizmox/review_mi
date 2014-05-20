@@ -17,13 +17,18 @@ window.ReviewMi = {
 };
 
 $(document).ready(function () {
+
+  //if user is logged in, add the required class to the page body
+  if (ReviewMi.currentUser) {
+    $('body').addClass('logged-in');
+  }
+
   //create and render the app view
   ReviewMi.appView = new ReviewMi.Views.appView();
   ReviewMi.appView.render();
 
   //instansiate the collections
   ReviewMi.reviews = new ReviewMi.Collections.Reviews();
-  
   ReviewMi.contents = new ReviewMi.Collections.Contents();
   ReviewMi.movies = new ReviewMi.Collections.Movies();
   
@@ -41,3 +46,21 @@ $(document).ready(function () {
 
   });
 });
+
+//--------------------------
+
+//handle client side session
+var session = {
+  login: function (username) {
+    ReviewMi.currentUser = username;
+    //add logged-in class to the body (used to display / hide elements on the page)
+    $('body').addClass('logged-in');
+  },
+
+  logout: function () {
+    //set currentUser to blank
+    ReviewMi.currentUser = '';
+    //remove logged-in class from the body (used to display / hide elements on the page)
+    $('body').removeClass('logged-in');
+  }
+};

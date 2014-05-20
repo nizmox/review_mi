@@ -4,7 +4,7 @@ ReviewMi.Views.newReviewView = Backbone.View.extend({
   initialize: function () {
 
     //unbind any existing event handlers
-    $(this.el).undelegate('#submit', 'click');
+    $(this.el).undelegate('form#newReview', 'submit');
 
     this.template = _.template($('#newReviewView').html() );
   },
@@ -16,7 +16,7 @@ ReviewMi.Views.newReviewView = Backbone.View.extend({
   },
 
   events: {
-    'click #submit': 'submitReview'
+    'submit form#newReview': 'submitReview'
   },
 
   submitReview: function(event) {

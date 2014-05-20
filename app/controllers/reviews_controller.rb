@@ -18,6 +18,8 @@ class ReviewsController < ApplicationController
     #includes: content_id, rating, description
     review = current_user.reviews.new(safe_params)
 
+    # binding.pry
+
     if review.save
       render :json => review, :include => {:user => {:only => :username}}
     else
@@ -28,7 +30,7 @@ class ReviewsController < ApplicationController
   private
   def signin_required
     unless current_user
-      render :json => {:error => true, :status => 401, :message => "ERROR: you must be signed in to create a review"}
+      render :json => {:error => true, :message => "ERROR: you must be signed in to create a review"}, :status => 401
     end
   end
 end

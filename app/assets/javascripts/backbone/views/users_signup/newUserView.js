@@ -55,7 +55,8 @@ ReviewMi.Views.newUserView = Backbone.View.extend({
         $('#reg-password-conf').val('');
       // registation successful
       } else {
-        ReviewMi.currentUser = response.username;
+        // ReviewMi.currentUser = response.username;
+        session.login(response.username);
         // redirect the user to the homepage
         self.redirectHome();
       }

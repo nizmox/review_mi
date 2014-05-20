@@ -13,41 +13,47 @@
 <!-- APP VIEW -->
 
 <script id="appView" type="text/x-underscore-template">
-  <h1>ReviewMi</h1>
+  <div id="container">
+    <div id="banner">
+      <h1 id="heading">ReviewMi</h1>
 
-  <div id="user">
-  </div>
+      <!-- to output login form OR user details and logout button -->
+      <div id="user">
+      </div>
+    </div>
 
-  <p>Navigation</p>
-  <ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="#search/movies">Search Movies</a></li>
-  </ul>
+    <ul id="navbar">
+      <li><a href="#">Home</a></li>
+      <li><a href="#search/movies" class="logged-in-only">Search Movies</a></li>
+    </ul>
 
-  <div id="main">
-  </div>
+    <div id="main">
+    </div>
+
+    <div id="footer">
+      <p>Site Designed by Simon Taylor - 2014</p>
+    </div>
+  </div><!-- #container -->
 </script>
 
 <script id="loggedOutView" type="text/x-underscore-template">
-  <p>Login here:</p>
-  <form>
-    <label>Username:</label>
-    <input type="text" id="username" required>
-    <label>Password:</label>
-    <input type="password" id="password" required>
-    <button id="login">Login</button>
+  <form id="login">
+    <label>Login here:</label>
+    <input type="text" id="username" placeholder="username" required>
+    <input type="password" id="password" placeholder="password" required>
+    <button>Login</button>
   </form>
-  <a href="#users/signup">Register</a>
+  <a href="#users/signup" class="register">Register</a>
 </script>
 
 <script id="loggedInView" type="text/x-underscore-template">
-  logged in as: {{ ReviewMi.currentUser }} <button id="logout">Logout</button>
+  <p>logged in as: {{ ReviewMi.currentUser }} <button id="logout">Logout</button></p>
 </script>
 
 <!-- HOME VIEW -->
 
 <script id="homeView" type="text/x-underscore-template">
-  <h3>Latest Reviews</h3>
+  <h3 id="page-heading">Latest Reviews...</h3>
 
   <ul id="reviews">
   </ul>
@@ -58,23 +64,23 @@
     <h3 class="title">{{ media_type }} - {{ title }}</h3>
     <img src="{{ image }}" class="img-thumb"
     ><div class="details">
-      <p>Rating: {{ rating }}</p>
-      <p>Review: {{ description }}</p>
-      <p>Reviewed by: {{ username }} </p>
-      <p>Date: {{ created_at }} </p>
+      <p><b>Rating:</b> {{ rating }}</p>
+      <p><b>Preview:</b> {{ description }}</p>
+      <p><b>Reviewed by:</b> {{ username }} </p>
+      <p><b>Date:</b> {{ created_at }} </p>
+      <a href="#review/new/{{ content_id }}" class="review-this logged-in-only">Review this!</a>
     </div>
   </div>
-  <a href="#review/new/{{ content_id }}">Review this yourself</a>
 </script>
 
 <!-- MOVIE SEARCH VIEW -->
 
 <script id="movieSearchView" type="text/x-underscore-template">
-  <h2>Search for a movie to review</h2>
-  <form id="search-frm">
-    <label>Movie Title Search:</label>
-    <input id="search-text" type="text">
-    <button id="search-btn">Search!</button>
+  <h3 id="page-heading">Search Movies (to Review)</h3>
+  <form id="movie-search">
+    <label>Movie Title:</label>
+    <input id="search-text" type="text" required>
+    <button>Search!</button>
   </form>
 
   <!-- to display the results (a list of movies) or result (a single title) -->
@@ -92,17 +98,18 @@
 
 <script id="movieTitleView" type="text/x-underscore-template">
   
-  <div class="info">
+  <div class="movie-title">
     <h2>{{ title }}</h2>
-    <img src="{{ image }}">
-    <p>Year: {{ year }}</p>
-    <p>Genre: {{ genre }}</p>
-    <p>Director: {{ director }}</p>
-    <p>Writer: {{ writer }}</p>
-    <p>Plot: {{ plot }}</p>
+    <img src="{{ image }}"
+    ><div class="details">
+      <p>Year: {{ year }}</p>
+      <p>Genre: {{ genre }}</p>
+      <p>Director: {{ director }}</p>
+      <p>Writer: {{ writer }}</p>
+      <p>Plot: {{ plot }}</p>
+      <button>Create Review!</button>
+    </div>
   </div>
-
-  <button>Create Review!</button>
 </script>
 
 <!-- NEW REVIEW VIEW -->
@@ -113,7 +120,7 @@
   <p>Write your review here...</p>
   <div>
     <div id="stars"></div>
-    <form>
+    <form id="newReview">
       <textarea id="review" cols="120" rows="10"></textarea><br>
       <button id="submit">Submit Review</button>
     </form>
@@ -123,10 +130,17 @@
 <!-- SHOW REVIEW VIEW -->
 
 <script id="showReviewView" type="text/x-underscore-template">
-  <h2>{{ title }}</h2>
-  <img class="image" src="{{ image }}">
-  <p><b>Rating:</b> <span id="stars"></span></p>
-  <p><b>Review:</b> {{ description }}</p>
+<div id="show-review">
+  <h2 class="title">{{ title }}</h2>
+  <img class="image" src="{{ image }}"
+  ><div id="content">
+    <p><b>Rating:</b> <span id="stars"></span></p>
+    <p><b>Review:</b> {{ description }}</p>
+    <p><b>Reviewed by:</b> {{ username }} </p>
+    <p><b>Date:</b> {{ created_at }} </p>
+    <a href="#" class="back">&#60; Back</a>
+  </div>
+</div>
 </script>
 
 <!-- NEW USER VIEW -->

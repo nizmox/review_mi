@@ -14,10 +14,12 @@ ReviewMi.Views.showReview = Backbone.View.extend({
     // generate 'data' needed to render template (includes movie + content data)
     var data = this.model.toJSON();
 
+    //reformat the date using moment.js
+    data.created_at = moment(data.created_at).format('D-MMM-YYYY h:mma');
+
+    //add data from 'content' model
     data.title = this.content.get('title');
     data.image = this.content.get('image');
-
-    console.log(data);
 
     this.$el.html(this.template(data));
   }

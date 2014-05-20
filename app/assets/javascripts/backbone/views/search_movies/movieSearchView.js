@@ -4,7 +4,7 @@ ReviewMi.Views.movieSearchView = Backbone.View.extend({
 
   initialize: function () {
     //unbind any existing event handlers
-    $(this.el).undelegate('#search-btn', 'click');
+    $(this.el).undelegate('#movie-search', 'submit');
 
     this.template = _.template($('#movieSearchView').html() );
   },
@@ -17,7 +17,7 @@ ReviewMi.Views.movieSearchView = Backbone.View.extend({
   },
 
   events: {
-    "click #search-btn": "search"
+    "submit #movie-search": "search"
   },
 
   search: function (event) {

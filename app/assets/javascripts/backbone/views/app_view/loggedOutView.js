@@ -13,7 +13,7 @@ ReviewMi.Views.loggedOutView = Backbone.View.extend({
   },
 
   events: {
-    'click #login': 'login'
+    'submit #login': 'login'
   },
 
   login: function (event) {
@@ -35,14 +35,17 @@ ReviewMi.Views.loggedOutView = Backbone.View.extend({
     //what to do on success
     }).done(function (data) {
       if (data.success === true) {
-        //update the ReviewMi currentUser variable
-        ReviewMi.currentUser = data.username;
+
+        //perform javascript login
+        session.login(data.username);
+
         //change view to logged out
         var view = new ReviewMi.Views.loggedInView();
         view.render();
       } else {
-        //update the ReviewMi currentUser variable
-        ReviewMi.currentUser = '';
+
+        //perform javascript logout
+        session.loginout();
       }
     });
   }
