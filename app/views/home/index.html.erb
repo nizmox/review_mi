@@ -32,9 +32,9 @@
   <p>Login here:</p>
   <form>
     <label>Username:</label>
-    <input type="text" id="username">
+    <input type="text" id="username" required>
     <label>Password:</label>
-    <input type="password" id="password">
+    <input type="password" id="password" required>
     <button id="login">Login</button>
   </form>
   <a href="#users/signup">Register</a>
@@ -55,12 +55,14 @@
 
 <script id="reviewView" type="text/x-underscore-template">
   <div class="review">
-    <h3>{{ media_type }} - {{ title }}</h3>
-    <img src="{{ image }}" class="img-thumb">
-    <p>Rating: {{ rating }}</p>
-    <p>Review: {{ description }}</p>
-    <p>Reviewed by: {{ user.username }} </p>
-    <p>Date: {{ created_at }} </p>
+    <h3 class="title">{{ media_type }} - {{ title }}</h3>
+    <img src="{{ image }}" class="img-thumb"
+    ><div class="details">
+      <p>Rating: {{ rating }}</p>
+      <p>Review: {{ description }}</p>
+      <p>Reviewed by: {{ username }} </p>
+      <p>Date: {{ created_at }} </p>
+    </div>
   </div>
   <a href="#review/new/{{ content_id }}">Review this yourself</a>
 </script>
@@ -137,13 +139,13 @@
 
 <form id="register">
   <label>Email:</label>
-  <input type="text" id="reg-email">
+  <input type="email" id="reg-email" required>
   <label>Username:</label>
-  <input type="text" id="reg-username">
+  <input type="text" id="reg-username" required>
   <label>Password:</label>
-  <input type="password" id="reg-password">
+  <input type="password" id="reg-password" required>
   <label>Password Confirmation:</label>
-  <input type="password" id="reg-password-conf">
+  <input type="password" id="reg-password-conf" required>
   <button id="create-account">Create Account</button>
 </form>
 </script>

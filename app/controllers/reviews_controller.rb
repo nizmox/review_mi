@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
     #FIX: change this to all reviews of friends
     reviews = Review.all
 
-    render :json => reviews #, :include => {:user => {:only => :username}}
+    render :json => reviews, :include => {:user => {:only => :username}}
   end
 
   def create
@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
     review = current_user.reviews.new(safe_params)
 
     if review.save
-      render :json => review
+      render :json => review, :include => {:user => {:only => :username}}
     else
       render :json => {:error => true, :message => "ERROR: review could not be saved"}
     end

@@ -17,7 +17,7 @@ ReviewMi.Views.newUserView = Backbone.View.extend({
   },
 
   events: {
-    'click #create-account': 'register'
+    'submit #register': 'register'
   },
 
   register: function (event) {
