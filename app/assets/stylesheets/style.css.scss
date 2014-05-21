@@ -1,21 +1,40 @@
 //https://kuler.adobe.com/Green-%26-Dark-Blue-color-theme-3854662/edit/?copy=true&base=2&rule=Custom&selected=0&name=Copy%20of%20Green%20%26%20Dark%20Blue&mode=rgb&rgbvalues=1,1,1,0.6823529411764706,0.6823529411764706,0.6823529411764706,0.9019607843137255,0.2980392156862745,0.4,0.17647058823529413,0.24313725490196078,0.3137254901960784,0.10588235294117647,0.7372549019607844,0.6078431372549019&swatchOrder=0,1,2,3,4
+
+//color palette
 $white: rgb(255,255,255); 
 $gray: rgb(174,174,174);
 $red: rgb(230,76,102);
 $blue: rgb(45,62,80);
 $aqua: rgb(27,188,155);
+
+//ADD A LIGHT BLUE TO THE PALETTE?!?!
+
 $shadow: 1px 1px 1px #000, 3px 3px 5px $blue;
 
 //--------------------
 // MIXINS
 //--------------------
+@mixin page-heading {
+  margin: 0;
+  padding: 5px 20px;
+
+  //text
+  font-family: 'Pacifico', cursive;
+  font-size: 30px;
+  color: white;
+  text-shadow: $shadow;
+
+  background-color: $aqua;
+}
+
 @mixin content-header {
   padding: 5px 0;
   margin: 0;
 
+  //text
   font-size: 26px;
   text-align: center;
-  color: $white;
+  color: white;
   text-shadow: $shadow;
 
   background-color: $gray;
@@ -32,6 +51,20 @@ $shadow: 1px 1px 1px #000, 3px 3px 5px $blue;
   background-color: $aqua;
   text-decoration: none;
   color: white;
+}
+
+@mixin small-btn {
+  background-color: $blue;
+  color: $white;
+  border-radius: 8px;
+}
+
+@mixin right-panel {
+  display: inline-block;
+  vertical-align: top;
+  //660px wide
+  padding: 10px;
+  width: 640px;
 }
 
 * {
@@ -83,6 +116,7 @@ body {
     text-shadow: $shadow;
     font-size: 40px;
     color: $white;
+    text-decoration: none;
 
     // background-color: yellow;
   }
@@ -97,6 +131,7 @@ body {
     text-align: right;
 
     p {
+      margin: 0;
       font-size: 14px;
     }
 
@@ -110,9 +145,7 @@ body {
       }
       
       button {
-        background-color: $blue;
-        color: $white;
-        border-radius: 8px;
+        @include small-btn;
       }
     }
 
@@ -164,15 +197,7 @@ body {
 //-------------------
 
 #page-heading {
-  margin: 0;
-  padding: 5px 20px;
-
-  font-family: 'Pacifico', cursive;
-  font-size: 30px;
-  color: white;
-  text-shadow: $shadow;
-
-  background-color: $aqua;
+  @include page-heading;
 }
 
 //-----------
@@ -182,10 +207,11 @@ body {
 #reviews {
   list-style: none;
   padding: 0;
+  margin: 0;
 
   li {
-    margin: 10px 0;
-    border-bottom: 5px solid $gray;
+    margin: 0;
+    border-bottom: 5px solid $red;
 
     &:hover {
       cursor: pointer;
@@ -253,11 +279,14 @@ ul.movies-list {
   li {
     display: block;
     padding: 5px 10px;
-    border: 1px solid black;
-    background-color: gray;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    background-color: $gray;
 
     &:hover {
-      background-color: black;
+      border-top: 1px solid white;
+      border-bottom: 1px solid white;
+      background-color: $red;
       color: white;
       cursor: pointer;
     }
@@ -284,7 +313,6 @@ ul.movies-list {
     vertical-align: top;
     width: 640px;
     padding: 0 10px;
-    background-color: green;
 
     p {
       font-size: 14px;
@@ -300,7 +328,7 @@ ul.movies-list {
 // MOVIE TITLE VIEW
 //------------------
 .movie-title {
-  background-color: pink;
+  // background-color: pink;
 
   h2 {
     @include content-header;
@@ -312,11 +340,70 @@ ul.movies-list {
   }
 
   .details {
-    display: inline-block;
-    vertical-align: top;
-    width: 660px;
-    background-color: blue;
+    @include right-panel;
+
+    // background-color: blue;
+
+    button {
+      @include aqua-button;
+    }
   }
 }
 
+//------------
+// NEW REVIEW
+//------------
 
+#new-review {
+  h2 {
+    @include content-header;
+  }
+
+  img {
+    display: inline-block;
+    vertical-align: top;
+  }
+  .content {
+    @include right-panel;
+    // background-color: purple;
+
+    form {
+      textarea {
+        width: 630px;
+        height: 290px;
+        font-size: 14px;
+      }
+      button {
+        @include aqua-button;
+      }
+    }
+  }
+}
+
+//------------------
+// REGISTER
+//------------------
+#register {
+  form {
+    margin: 0 auto;
+    // background-color: yellow;
+    width: 506px;
+  
+    label {
+      display: block;
+      width: 500px;
+      padding: 5px 0;
+    }
+    input {
+      display: block;
+      width: 500px;
+      height: 30px;
+
+      font-size: 16px;
+    }
+
+    button {
+      @include aqua-button;
+    }
+  }
+}
