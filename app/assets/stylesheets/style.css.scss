@@ -298,6 +298,10 @@ ul.movies-list {
 //------------------
 
 #show-review {
+  h1 {
+    @include page-heading;
+  }
+
   h2 {
     @include content-header;
   }
@@ -329,6 +333,9 @@ ul.movies-list {
 //------------------
 .movie-title {
   // background-color: pink;
+  div.page-heading {
+    @include page-heading;
+  }
 
   h2 {
     @include content-header;

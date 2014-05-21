@@ -3,7 +3,7 @@ ReviewMi.Views.loggedOutView = Backbone.View.extend({
 
   initialize: function () {
     //unbind any existing event handlers
-    $(this.el).undelegate('#login', 'click');
+    $(this.el).undelegate('#login', 'submit');
     
     this.template = _.template($('#loggedOutView').html() );
   },
