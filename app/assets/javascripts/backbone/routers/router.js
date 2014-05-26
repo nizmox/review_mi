@@ -7,7 +7,7 @@ ReviewMi.Routers.appRouter = Backbone.Router.extend({
     //movie search with results (using a search term - movie title)
     'search/movies/:term': 'searchMoviesTerm',
     //movie search specific title (using imdbID)
-    'search/movies/title/:imdbID': 'movieTitle',
+    'movies/:imdbID': 'moviesImdbid',
     //new review (using content id)
     'review/new/:id': 'newReview',
     //view a review (using review id)
@@ -47,13 +47,13 @@ ReviewMi.Routers.appRouter = Backbone.Router.extend({
   },
 
   // view a single movie search result with more detail
-  movieTitle: function (imdbID) {
+  moviesImdbid: function (imdbID) {
 
     var movie = ReviewMi.movies.where({ imdb_id: imdbID })[0];
 
     // to call once movie is found in collection or fetched from OMDB and saved in database
     var render = function (movie) {
-      var view = new ReviewMi.Views.movieTitleView({model: movie});
+      var view = new ReviewMi.Views.moviesImdbidView({model: movie});
       view.render(); 
     };
     

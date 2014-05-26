@@ -11,6 +11,6 @@ ReviewMi.Views.searchMoviesTermSubView = Backbone.View.extend({
     "click": "titleDetails"
   },
   titleDetails: function () {
-    ReviewMi.router.navigate('search/movies/title/' + (this.model.attributes.imdbID), true);
+    ReviewMi.router.navigate('movies/' + (this.model.attributes.imdbID), true);
   }
 });
