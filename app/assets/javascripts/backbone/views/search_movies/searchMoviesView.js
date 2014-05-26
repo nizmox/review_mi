@@ -1,12 +1,13 @@
 // the page to allow the user to create a new review
-ReviewMi.Views.movieSearchView = Backbone.View.extend({
+ReviewMi.Views.searchMoviesView = Backbone.View.extend({
   el: '#main',
 
   initialize: function () {
     //unbind any existing event handlers
     $(this.el).undelegate('#movie-search', 'submit');
 
-    this.template = _.template($('#movieSearchView').html() );
+    //fetch html template
+    this.template = _.template($('#search-movies').html() );
   },
 
   render: function () {

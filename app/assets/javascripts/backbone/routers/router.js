@@ -3,9 +3,9 @@ ReviewMi.Routers.appRouter = Backbone.Router.extend({
     //home
     '': 'home',
     //movie search
-    'search/movies': 'movieSearch',
+    'search/movies': 'searchMovies',
     //movie search with results (using a search term - movie title)
-    'search/movies/:term': 'movieResultsList',
+    'search/movies/:term': 'searchMoviesTerm',
     //movie search specific title (using imdbID)
     'search/movies/title/:imdbID': 'movieTitle',
     //new review (using content id)
@@ -25,15 +25,15 @@ ReviewMi.Routers.appRouter = Backbone.Router.extend({
   },
 
   //page to search for a movie to then review
-  movieSearch: function () {
-    var view = new ReviewMi.Views.movieSearchView();
+  searchMovies: function () {
+    var view = new ReviewMi.Views.searchMoviesView();
     view.render();
   },
 
   //movie search results page
-  movieResultsList: function (term) {
+  searchMoviesTerm: function (term) {
     //render movieSearch so the 'results container is on the page'
-    this.movieSearch();
+    this.searchMovies();
 
     //create a movies collection and search for specified title
     var movieResults = new ReviewMi.Collections.MovieResults();
