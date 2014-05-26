@@ -40,7 +40,7 @@ ReviewMi.Routers.appRouter = Backbone.Router.extend({
 
     //perform search on OMDB for the specified search term
     movieResults.searchOMDB(term, function () {
-      var view = new ReviewMi.Views.movieResultsListView({collection: movieResults});
+      var view = new ReviewMi.Views.searchMoviesTermView({collection: movieResults});
       view.render();
     });
     

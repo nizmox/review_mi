@@ -1,4 +1,4 @@
-ReviewMi.Views.movieResultsListView = Backbone.View.extend({
+ReviewMi.Views.searchMoviesTermView = Backbone.View.extend({
   
   tagName: 'ul',
   className: 'movies-list',
@@ -14,7 +14,7 @@ ReviewMi.Views.movieResultsListView = Backbone.View.extend({
     this.$result.html(this.el);
 
     this.collection.each(function(result){
-      var view = new ReviewMi.Views.movieResultView({model: result});
+      var view = new ReviewMi.Views.searchMoviesTermSubView({model: result});
       $('.movies-list').append(view.render().el);
     });
   }
