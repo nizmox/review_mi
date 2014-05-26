@@ -54,14 +54,18 @@
 <!-- HOME VIEW -->
 
 <script id="homeView" type="text/x-underscore-template">
-  <h3 id="page-heading">Latest Reviews...</h3>
+  <div class="home-view">
+    <h3 id="page-heading">Latest Reviews...</h3>
 
-  <ul id="reviews">
-  </ul>
+    <ul id="reviews">
+    </ul>
+  </div>
 </script>
 
-<script id="reviewView" type="text/x-underscore-template">
-  <div class="review">
+<!-- HOME SUB VIEW -->
+
+<script id="homeSubView" type="text/x-underscore-template">
+  <div class="home-sub-view">
     <h3 class="title">{{ media_type }} - {{ title }}</h3>
     <img src="{{ image }}" class="img-thumb"
     ><div class="details">
@@ -114,7 +118,7 @@
   </div>
 </script>
 
-<!-- NEW REVIEW VIEW -->
+<!-- REVIEW NEW VIEW -->
 
 <script id="reviewNewView" type="text/x-underscore-template">
   <div class="reviewNewView">
@@ -131,10 +135,10 @@
   </div>
 </script>
 
-<!-- SHOW REVIEW VIEW -->
+<!-- REVIEW VIEW -->
 
-<script id="showReviewView" type="text/x-underscore-template">
-  <div id="show-review">
+<script id="reviewView" type="text/x-underscore-template">
+  <div class="review-view">
     <h1>View Review</h1>
     <h2 class="title">{{ title }}</h2>
     <img class="image" src="{{ image }}"
@@ -148,10 +152,10 @@
   </div>
 </script>
 
-<!-- NEW USER VIEW -->
+<!-- USER SIGNUP VIEW -->
 
-<script id="newUserView" type="text/x-underscore-template">
-  <div id="register">
+<script id="usersSignupView" type="text/x-underscore-template">
+  <div class="users-signup">
     <h2 id="page-heading">Register Here</h2>
 
     <ul id="errors"></ul>

@@ -1,19 +1,20 @@
 // generates an <li> tag for a review
-ReviewMi.Views.ReviewView = Backbone.View.extend({
+ReviewMi.Views.homeSubView = Backbone.View.extend({
   tagName: 'li',
 
   initialize: function () {
-    this.template = _.template($('#reviewView').html() );
+    this.template = _.template($('#homeSubView').html() );
   },
 
   render: function () {
     var review = this.model;
     var content = this.model.content();
 
+    //call the truncate function on the review description
     var revDescTrunc = this.truncate( review.get('description'), 100);
 
     //build a new js object with parameters required for view template
-    var tempObj = {
+    var tempViewObj = {
       content_id: content.get('id'),
       media_type: content.get('media_type'),
       title: content.get('title'),
@@ -24,7 +25,7 @@ ReviewMi.Views.ReviewView = Backbone.View.extend({
       created_at: moment(review.get('created_at')).format('D-MMM-YYYY h:mma')
     };
 
-    this.$el.html(this.template(tempObj));
+    this.$el.html(this.template(tempViewObj));
 
     return this;
   },

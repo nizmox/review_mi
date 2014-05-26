@@ -11,8 +11,8 @@ ReviewMi.Views.homeView = Backbone.View.extend({
 
     //loop through each review (collection), generate the view, render and append to the page
     this.collection.each(function(review) {
-      var view = new ReviewMi.Views.ReviewView({model: review});
-      // console.log('review: ',review)
+      //render a snippet of each movie review
+      var view = new ReviewMi.Views.homeSubView({model: review});
       $('#reviews').append(view.render().el);
     });
   }

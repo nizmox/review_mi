@@ -1,9 +1,9 @@
-ReviewMi.Views.newUserView = Backbone.View.extend({
+ReviewMi.Views.usersSignupView = Backbone.View.extend({
   el: '#main',
 
   initialize: function () {
     //fetch the template html
-    this.template = _.template($('#newUserView').html() );
+    this.template = _.template($('#usersSignupView').html() );
 
     //if the user is already signed in, re-direct home
     if (ReviewMi.currentUser) {

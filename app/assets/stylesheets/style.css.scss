@@ -200,6 +200,8 @@ body {
   @include page-heading;
 }
 
+//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
 //-----------
 // HOME VIEW
 //-----------
@@ -216,44 +218,48 @@ body {
     &:hover {
       cursor: pointer;
     }
-
-    h3.title {
-      font-size: 26px;
-      text-align: center;
-      padding: 5px 0;
-      margin: 0;
-
-      text-shadow: $shadow;
-      background-color: $gray;
-      color: $white;
-    }
-
-    .img-thumb {
-      display: inline-block;
-      vertical-align: top;
-      max-width: 150px;
-      max-height: 222px;
-    }
-
-    .details {
-      display: inline-block;
-      vertical-align: top;
-      width: 790px;
-      padding: 0 10px;
-
-      // background-color: green;
-
-      p {
-        margin: 10px 0;
-        font-size: 14px;
-      }
-
-      a.review-this {
-        @include aqua-button;
-      }
-    }
   }//li
 }//#reviews
+
+//---------------
+// HOME SUB VIEW 
+//---------------
+
+.home-sub-view {
+  h3.title {
+    font-size: 26px;
+    text-align: center;
+    padding: 5px 0;
+    margin: 0;
+
+    text-shadow: $shadow;
+    background-color: $gray;
+    color: $white;
+  }
+
+  .img-thumb {
+    display: inline-block;
+    vertical-align: top;
+    max-width: 150px;
+    max-height: 222px;
+  }
+
+  .details {
+    display: inline-block;
+    vertical-align: top;
+    width: 790px;
+    padding: 0 10px;
+
+    p {
+      margin: 10px 0;
+      font-size: 14px;
+    }
+
+    a.review-this {
+      @include aqua-button;
+    }
+  }
+}
 
 //--------------
 // MOVIE SEARCH
@@ -294,10 +300,10 @@ ul.movies-list {
 }
 
 //------------------
-// SHOW REVIEW VIEW
+// REVIEW VIEW
 //------------------
 
-#show-review {
+.review-view {
   h1 {
     @include page-heading;
   }
@@ -387,9 +393,9 @@ ul.movies-list {
 }
 
 //------------------
-// REGISTER
+// USERS SIGNUP
 //------------------
-#register {
+.users-signup {
   form {
     margin: 0 auto;
     // background-color: yellow;

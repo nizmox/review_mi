@@ -1,13 +1,13 @@
-ReviewMi.Views.showReview = Backbone.View.extend({
+ReviewMi.Views.reviewView = Backbone.View.extend({
   el: '#main',
 
   initialize: function () {
     //set the content object for this view (associated with a review)
     this.content = this.model.content();
 
-    this.template = _.template($('#showReviewView').html() );
+    this.template = _.template($('#reviewView').html() );
 
-    console.log(this.template);
+    // console.log(this.template);
   },
 
   render: function () {
