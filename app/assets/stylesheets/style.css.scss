@@ -361,7 +361,7 @@ ul.movies-list {
 // NEW REVIEW
 //------------
 
-#new-review {
+.reviewNewView {
   h2 {
     @include content-header;
   }
@@ -372,7 +372,6 @@ ul.movies-list {
   }
   .content {
     @include right-panel;
-    // background-color: purple;
 
     form {
       textarea {
