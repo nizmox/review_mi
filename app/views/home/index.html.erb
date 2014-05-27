@@ -80,31 +80,38 @@
 
 <!-- SEARCH MOVIES VIEW -->
 
-<script id="search-movies" type="text/x-underscore-template">
-  <h3 id="page-heading">Search Movies (to Review)</h3>
-  <form id="movie-search">
-    <label>Movie Title:</label>
-    <input id="search-text" type="text" required>
-    <button>Search!</button>
-  </form>
+<script id="searchMovies" type="text/x-underscore-template">
+  <div class="search-movies">
 
-  <!-- to display the results (a list of movies) or result (a single title) -->
-  <div id="result">
+    <!-- PAGE HEADING -->
+    <h3>Search Movies (to Review)</h3>
+
+    <!-- MOVIE SEARCH FORM -->
+    <form id="search-movies-frm">
+      <label>Movie Title:</label>
+      <input id="search-text" type="text" required>
+      <button>Search!</button>
+    </form>
+
+    <!-- DISPLAY SEARCH RESULTS -->
+    <div id="result">
+    </div>
+
   </div>
 </script>
 
-<!-- SEARCH MOVIES TERM SUB VIEW -->
+<!-- SEARCH MOVIES RESULTS SUB VIEW -->
 
-<script id="search-movies-term-sub" type="text/x-underscore-template">
+<script id="searchMoviesResultsSub" type="text/x-underscore-template">
   <p>{{ title }} - {{ year }} - type: {{ type }}</p>
 </script>
 
 <!-- MOVIE TITLE VIEW -->
 
-<script id="movies-imdbid" type="text/x-underscore-template">
+<script id="movies" type="text/x-underscore-template">
   
-  <div class="movie-title">
-    <div class="page-heading">View a Movie</div>
+  <div class="movies">
+    <h1>View a Movie</h1>
     <h2>{{ title }}</h2>
     <img src="{{ image }}"
     ><div class="details">
@@ -121,17 +128,22 @@
 <!-- REVIEW NEW VIEW -->
 
 <script id="reviewNewView" type="text/x-underscore-template">
-  <div class="reviewNewView">
+  <div class="review-new">
+
     <h2>{{ title }}</h2>
     <img class="image" src="{{ image }}"
+
     ><div class="content">
       <p>Write your review here...</p>
       <div id="stars"></div><br>
-      <form id="newReview">
+
+      <form id="review-new-frm">
         <textarea id="review" cols="120" rows="10"></textarea><br>
         <button id="submit">Submit Review</button>
       </form>
+
     </div>
+
   </div>
 </script>
 
@@ -160,7 +172,7 @@
 
     <ul id="errors"></ul>
 
-    <form>
+    <form id="users-signup-frm">
       <label>Email:</label>
       <input type="email" id="reg-email" required>
       <label>Username:</label>

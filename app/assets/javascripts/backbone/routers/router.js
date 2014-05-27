@@ -5,9 +5,9 @@ ReviewMi.Routers.appRouter = Backbone.Router.extend({
     //movie search
     'search/movies': 'searchMovies',
     //movie search with results (using a search term - movie title)
-    'search/movies/:term': 'searchMoviesTerm',
+    'search/movies/results/:term': 'searchMoviesResults',
     //movie search specific title (using imdbID)
-    'movies/:imdbID': 'moviesImdbid',
+    'movies/:imdbID': 'movies',
     //new review (using content id)
     'review/new/:contentid': 'reviewNew',
     //view a review (using review id)
@@ -31,7 +31,7 @@ ReviewMi.Routers.appRouter = Backbone.Router.extend({
   },
 
   //movie search results page
-  searchMoviesTerm: function (term) {
+  searchMoviesResults: function (term) {
     //render movieSearch so the 'results container is on the page'
     this.searchMovies();
 
@@ -40,20 +40,21 @@ ReviewMi.Routers.appRouter = Backbone.Router.extend({
 
     //perform search on OMDB for the specified search term
     movieResults.searchOMDB(term, function () {
-      var view = new ReviewMi.Views.searchMoviesTermView({collection: movieResults});
+      var view = new ReviewMi.Views.searchMoviesResultsView({collection: movieResults});
       view.render();
     });
     
   },
 
   // view a single movie search result with more detail
-  moviesImdbid: function (imdbID) {
+  movies: function (imdbID) {
 
+    //query the movies collection for the desired movie using imdbID
     var movie = ReviewMi.movies.where({ imdb_id: imdbID })[0];
 
-    // to call once movie is found in collection or fetched from OMDB and saved in database
+    //callback for once movie is found (either in the collection or once fetched from OMDB)
     var render = function (movie) {
-      var view = new ReviewMi.Views.moviesImdbidView({model: movie});
+      var view = new ReviewMi.Views.moviesView({model: movie});
       view.render(); 
     };
     
@@ -63,6 +64,7 @@ ReviewMi.Routers.appRouter = Backbone.Router.extend({
       render(movie);
     //if movie does not already exist
     } else {
+      console.log('this is a new movie, searching OMDB...');
       //perform search on omdb for this movie
       movie = this.fetchMovie(imdbID, render);
     }

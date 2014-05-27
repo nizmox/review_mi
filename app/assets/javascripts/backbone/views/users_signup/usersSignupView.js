@@ -5,6 +5,9 @@ ReviewMi.Views.usersSignupView = Backbone.View.extend({
     //fetch the template html
     this.template = _.template($('#usersSignupView').html() );
 
+    //unbind any existing event handlers
+    $(this.el).undelegate('#users-signup-frm', 'submit');
+
     //if the user is already signed in, re-direct home
     if (ReviewMi.currentUser) {
       // redirect the user to the homepage
@@ -17,10 +20,10 @@ ReviewMi.Views.usersSignupView = Backbone.View.extend({
   },
 
   events: {
-    'submit #register': 'register'
+    'submit #users-signup-frm': 'signup'
   },
 
-  register: function (event) {
+  signup: function (event) {
     event.preventDefault();
 
     //maintain this using 'self'

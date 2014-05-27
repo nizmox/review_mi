@@ -31,7 +31,7 @@ ReviewMi.Views.homeSubView = Backbone.View.extend({
   },
 
   events: {
-    'click .review': 'showReview'
+    'click': 'showReview'
   },
 
   showReview: function () {

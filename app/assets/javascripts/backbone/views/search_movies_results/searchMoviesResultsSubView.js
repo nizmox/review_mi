@@ -1,7 +1,7 @@
-ReviewMi.Views.searchMoviesTermSubView = Backbone.View.extend({
+ReviewMi.Views.searchMoviesResultsSubView = Backbone.View.extend({
   tagName: 'li',
   initialize: function () {
-    this.template = _.template( $('#search-movies-term-sub').html() );
+    this.template = _.template( $('#searchMoviesResultsSub').html() );
   },
   render: function () {
     this.$el.html(this.template(this.model.toJSON()));

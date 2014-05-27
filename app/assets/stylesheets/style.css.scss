@@ -262,39 +262,47 @@ body {
 }
 
 //--------------
-// MOVIE SEARCH
+// SEARCH MOVIES
 //--------------
 
-#movie-search {
-  padding: 5px 10px;
-
-  #search-text {
-    font-size: 14px;
-    width: 300px;
+.search-movies {
+  h3 {
+    @include page-heading;
   }
 
-  button {
-    font-size: 14px;
-  }
-}
-
-ul.movies-list {
-  list-style: none;
-  padding: 0;
-
-  li {
-    display: block;
+  //form
+  #search-movies-frm {
     padding: 5px 10px;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    background-color: $gray;
 
-    &:hover {
-      border-top: 1px solid white;
-      border-bottom: 1px solid white;
-      background-color: $red;
-      color: white;
-      cursor: pointer;
+    //input box
+    #search-text {
+      font-size: 14px;
+      width: 300px;
+    }
+
+    button {
+      font-size: 14px;
+    }
+  }
+
+  ul.movies-list {
+    list-style: none;
+    padding: 0;
+
+    li {
+      display: block;
+      padding: 5px 10px;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+      background-color: $gray;
+
+      &:hover {
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+        background-color: $red;
+        color: white;
+        cursor: pointer;
+      }
     }
   }
 }
@@ -337,9 +345,9 @@ ul.movies-list {
 //------------------
 // MOVIE TITLE VIEW
 //------------------
-.movie-title {
+.movies {
   // background-color: pink;
-  div.page-heading {
+  h1 {
     @include page-heading;
   }
 
@@ -355,19 +363,17 @@ ul.movies-list {
   .details {
     @include right-panel;
 
-    // background-color: blue;
-
     button {
       @include aqua-button;
     }
   }
 }
 
-//------------
-// NEW REVIEW
-//------------
+//-----------------
+// REVIEW NEW VIEW
+//-----------------
 
-.reviewNewView {
+.review-new {
   h2 {
     @include content-header;
   }

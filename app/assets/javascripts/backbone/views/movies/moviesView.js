@@ -1,4 +1,4 @@
-ReviewMi.Views.moviesImdbidView = Backbone.View.extend({
+ReviewMi.Views.moviesView = Backbone.View.extend({
   el: '#main',
 
   initialize: function () {
@@ -7,7 +7,7 @@ ReviewMi.Views.moviesImdbidView = Backbone.View.extend({
     $(this.el).undelegate('button', 'click');
 
     //fetch the template html
-    this.template = _.template($('#movies-imdbid').html() );
+    this.template = _.template($('#movies').html() );
   },
 
   render: function () {

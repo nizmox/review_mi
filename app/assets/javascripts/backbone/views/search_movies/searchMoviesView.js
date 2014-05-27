@@ -4,10 +4,10 @@ ReviewMi.Views.searchMoviesView = Backbone.View.extend({
 
   initialize: function () {
     //unbind any existing event handlers
-    $(this.el).undelegate('#movie-search', 'submit');
+    $(this.el).undelegate('#search-movies-frm', 'submit');
 
     //fetch html template
-    this.template = _.template($('#search-movies').html() );
+    this.template = _.template($('#searchMovies').html() );
   },
 
   render: function () {
@@ -18,7 +18,7 @@ ReviewMi.Views.searchMoviesView = Backbone.View.extend({
   },
 
   events: {
-    "submit #movie-search": "search"
+    "submit #search-movies-frm": "search"
   },
 
   search: function (event) {
@@ -27,7 +27,7 @@ ReviewMi.Views.searchMoviesView = Backbone.View.extend({
 
     console.log('searching for: ',this.$searchText.val());
 
-    ReviewMi.router.navigate('search/movies/' + encodeURI(this.$searchText.val()), true);
+    ReviewMi.router.navigate('search/movies/results/' + encodeURI(this.$searchText.val()), true);
   }
   
 });
